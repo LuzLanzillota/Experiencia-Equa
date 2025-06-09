@@ -1042,7 +1042,6 @@
     "m_OutputNode": {
         "m_Id": ""
     },
-    "m_SubDatas": [],
     "m_ActiveTargets": [
         {
             "m_Id": "4704a2367e0c4622984585dafa34b4ea"
@@ -4479,7 +4478,7 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_BlendMode": 15
+    "m_BlendMode": 17
 }
 
 {

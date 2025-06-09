@@ -55,9 +55,9 @@ Material:
     - _MaskScale: 0.05
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ReflactionOpacity: 1
+    - _ReflactionOpacity: 0.43
     - _foamscale: 220
-    - _reflectionstrength: 0.05
+    - _reflectionstrength: 0.4
     - _ripplesamoung: 2.9
     - _speed: 1
     - _varonspeed: 3
