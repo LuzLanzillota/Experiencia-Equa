@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 0.615
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.071423694, g: 0.26079762, b: 0.4489791, a: 0.615}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1213,6 +1212,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 164641869}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9874172aad766494686c327afc6bdfa0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 164641873}
   m_SourcePrefab: {fileID: 100100000, guid: 9874172aad766494686c327afc6bdfa0, type: 3}
 --- !u!1 &164641868 stripped
 GameObject:
@@ -1248,6 +1251,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 164641867}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &164641873
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164641868}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aaaca64470c72fa4aa298651a4eb77e5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &193744375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,7 +1362,6 @@ Transform:
   - {fileID: 11009078}
   - {fileID: 99027342}
   - {fileID: 1626745874}
-  - {fileID: 1256345929}
   - {fileID: 633602089}
   - {fileID: 316597580}
   - {fileID: 1336717924}
@@ -1404,6 +1427,7 @@ Terrain:
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
+  m_HeightmapMinimumLODSimplification: 0
   m_HeightmapMaximumLOD: 0
   m_ShadowCastingMode: 2
   m_DrawHeightmap: 1
@@ -1916,7 +1940,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1256345929}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 65.97, y: -30, z: 0}
 --- !u!114 &410087042
@@ -2354,12 +2379,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!20 &532195569
 Camera:
   m_ObjectHideFlags: 0
@@ -5441,6 +5466,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1626745871}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c646e0ad6bf2d7142814587d0ad1b58a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1626745875}
   m_SourcePrefab: {fileID: 100100000, guid: c646e0ad6bf2d7142814587d0ad1b58a, type: 3}
 --- !u!1 &1626745870 stripped
 GameObject:
@@ -5476,6 +5505,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1626745869}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1626745875
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626745870}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2736ebc47e2278941a2c5652ace23f67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1667930145 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2971542036940430761, guid: 2077711288441bf48bfe8f06740a2106,
@@ -6443,12 +6493,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &2115125230 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5245042011116262203, guid: 6f5deccfdf1e8ba459b8a232fac0aec1,
