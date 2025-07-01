@@ -6,6 +6,7 @@ public class ZonaInteractiva : MonoBehaviour
     public GameObject textoUI;
     public GameObject textoUI2;
     private bool jugadorEnZona = false;
+    public Animator PuertaEntrada;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,6 +15,7 @@ public class ZonaInteractiva : MonoBehaviour
             textoUI.SetActive(true);
             textoUI2.SetActive(true);
             jugadorEnZona = true;
+            PuertaEntrada.Play("PuertaEntradaCueva");
         }
     }
 
