@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class BaseLlave : MonoBehaviour
 {
@@ -12,8 +13,10 @@ public class BaseLlave : MonoBehaviour
 
     void Start()
     {
-        // 🧠 Busca automáticamente todas las flores que tengan el script FlorActivador
-        floresParaActivar = FindObjectsOfType<FlorActivador>();
+        // 🌀 Mezcla aleatoriamente el orden de las flores
+        floresParaActivar = FindObjectsOfType<FlorActivador>()
+            .OrderBy(f => Random.value)
+         .ToArray();
     }
 
     void Update()
@@ -66,12 +69,12 @@ public class BaseLlave : MonoBehaviour
 
     IEnumerator ActivarFloresConDelay()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
 
         foreach (FlorActivador flor in floresParaActivar)
         {
             flor.ActivarFlor();
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 
