@@ -7,6 +7,7 @@ public class BaseLlave : MonoBehaviour
     public Animator Portal;
     public GameObject llaveEnBase; // La llave que se activa y gira
     public Animator animLlaveBase; // Animator de esa llave
+    public ParticleSystem particulasPortal; // 👈 Sistema de partículas a activar
 
     private FlorActivador[] floresParaActivar; // Ahora es privado
     private bool jugadorEnZona = false;
@@ -16,7 +17,13 @@ public class BaseLlave : MonoBehaviour
         // 🌀 Mezcla aleatoriamente el orden de las flores
         floresParaActivar = FindObjectsOfType<FlorActivador>()
             .OrderBy(f => Random.value)
-         .ToArray();
+            .ToArray();
+
+        // Asegurar que el sistema de partículas arranque apagado
+        if (particulasPortal != null)
+        {
+            particulasPortal.Stop();
+        }
     }
 
     void Update()
@@ -64,7 +71,15 @@ public class BaseLlave : MonoBehaviour
     IEnumerator AbrirPortalConDelay()
     {
         yield return new WaitForSeconds(3f);
+
+        // Activar animación del portal
         Portal.SetTrigger("Abrir");
+
+        // Activar partículas
+        if (particulasPortal != null)
+        {
+            particulasPortal.Play();
+        }
     }
 
     IEnumerator ActivarFloresConDelay()
