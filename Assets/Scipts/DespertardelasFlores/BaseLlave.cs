@@ -7,10 +7,12 @@ public class BaseLlave : MonoBehaviour
     public Animator Portal;
     public GameObject llaveEnBase; // La llave que se activa y gira
     public Animator animLlaveBase; // Animator de esa llave
-    public ParticleSystem particulasPortal; // 👈 Sistema de partículas a activar
+    public ParticleSystem particulasPortal; // Sistema de partículas a activar
+    public GameObject muroBloqueador; //muro invisible que bloquea el paso
 
-    private FlorActivador[] floresParaActivar; // Ahora es privado
+    private FlorActivador[] floresParaActivar;
     private bool jugadorEnZona = false;
+    private bool condicionesCompletas = false; //bandera para saber si ya se activó todo
 
     void Start()
     {
@@ -23,6 +25,12 @@ public class BaseLlave : MonoBehaviour
         if (particulasPortal != null)
         {
             particulasPortal.Stop();
+        }
+
+        // Asegurar que el muro arranque activado (bloqueando el paso)
+        if (muroBloqueador != null)
+        {
+            muroBloqueador.SetActive(true);
         }
     }
 
@@ -59,6 +67,12 @@ public class BaseLlave : MonoBehaviour
 
                     // Quitar la llave del inventario
                     manager.tieneLlave = false;
+
+                    // Marcar condiciones como completadas
+                    condicionesCompletas = true;
+
+                    // 🔓 Desactivar el muro invisible después de un pequeño delay (para sincronizar con animaciones)
+                    StartCoroutine(DesactivarMuroConDelay(5f));
                 }
                 else
                 {
@@ -90,6 +104,17 @@ public class BaseLlave : MonoBehaviour
         {
             flor.ActivarFlor();
             yield return new WaitForSeconds(0.05f);
+        }
+    }
+
+    IEnumerator DesactivarMuroConDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (condicionesCompletas && muroBloqueador != null)
+        {
+            muroBloqueador.SetActive(false);
+            Debug.Log("✅ Muro desactivado, podés avanzar.");
         }
     }
 
