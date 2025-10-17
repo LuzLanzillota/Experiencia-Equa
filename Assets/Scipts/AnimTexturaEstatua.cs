@@ -6,9 +6,9 @@ using Unity.VisualScripting;
 
 public class AnimTexturaEstatua : MonoBehaviour
 {
-    public Animator Esfera;
     public Animator PuertaSalida;
-
+    public Animator CuerpoSolarius;
+    public Animator CabezaSolarius;
     public Puntos puntosScript;
 
     private bool SinEsfera = false;
@@ -27,8 +27,10 @@ public class AnimTexturaEstatua : MonoBehaviour
     {
         SinEsfera = true;
         Debug.Log("Puntos Suficientes");
-        Esfera.Play("EsferaSolarius");
         yield return new WaitForSeconds(3);
+        CuerpoSolarius.Play("ConEmissive");
+        CabezaSolarius.Play("ConEmissive");
+        yield return new WaitForSeconds(7);
         PuertaSalida.Play("PuertaSalidaCueva");
     }
 

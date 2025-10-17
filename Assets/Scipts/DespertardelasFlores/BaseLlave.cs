@@ -9,7 +9,8 @@ public class BaseLlave : MonoBehaviour
     public Animator animLlaveBase; // Animator de esa llave
     public ParticleSystem particulasPortal; // Sistema de partículas a activar
     public GameObject muroBloqueador; //muro invisible que bloquea el paso
-
+    public GameObject muroNota;
+    public GameObject panelInteraccionLlave;
     private FlorActivador[] floresParaActivar;
     private bool jugadorEnZona = false;
     private bool condicionesCompletas = false; //bandera para saber si ya se activó todo
@@ -30,7 +31,9 @@ public class BaseLlave : MonoBehaviour
         // Asegurar que el muro arranque activado (bloqueando el paso)
         if (muroBloqueador != null)
         {
+            muroNota.SetActive(true);
             muroBloqueador.SetActive(true);
+            panelInteraccionLlave.SetActive(false);
         }
     }
 
@@ -51,6 +54,7 @@ public class BaseLlave : MonoBehaviour
 
                     // Reproducir la animación de giro
                     animLlaveBase.Play("GiroLlave");
+                    Destroy(panelInteraccionLlave);
 
                     // Iniciar delay para abrir el portal
                     StartCoroutine(AbrirPortalConDelay());
@@ -114,6 +118,7 @@ public class BaseLlave : MonoBehaviour
         if (condicionesCompletas && muroBloqueador != null)
         {
             muroBloqueador.SetActive(false);
+            muroNota.SetActive(false);
             Debug.Log("✅ Muro desactivado, podés avanzar.");
         }
     }

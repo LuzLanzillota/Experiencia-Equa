@@ -7,6 +7,23 @@ public class BaseCaldero : MonoBehaviour
     public Animator animHongo;
     public Animator animAgua;
     public Animator animHongosGrandes;
+    public Animator animHongosGrandes2;
+    public Animator animHongosGrandes3;
+    public Animator animHongosGrandes4;
+    public Animator animHongosGrandes5;
+    public Animator animHongosGrandes6;
+    public Animator animHongosGrandes7;
+    public Animator animHongosGrandes8;
+    public Animator animHongosGrandes9;
+    public Animator animHongosGrandes10;
+    public Animator animHongosGrandes11;
+    public Animator animHongosGrandes12;
+    public Animator animHongosGrandes13;
+    public Animator animHongosGrandes14;
+    public Animator animHongosGrandes15;
+
+
+
 
     private bool jugadorEnZona = false;
 
@@ -69,9 +86,21 @@ public class BaseCaldero : MonoBehaviour
         // 4️⃣ Hongos grandes creciendo
         if (animHongosGrandes != null)
         {
-            animHongosGrandes.gameObject.SetActive(true);
-            yield return new WaitForEndOfFrame();
-            animHongosGrandes.SetTrigger("Crecer");
+            animHongosGrandes.Play("Crece");
+            animHongosGrandes2.Play("Crece");
+            animHongosGrandes3.Play("Crece");
+            animHongosGrandes4.Play("Crece");
+            animHongosGrandes5.Play("Crece");
+            animHongosGrandes6.Play("Crece");
+            animHongosGrandes7.Play("Crece");
+            animHongosGrandes8.Play("Crece");
+            animHongosGrandes9.Play("Crece");
+            animHongosGrandes10.Play("Crece");
+            animHongosGrandes11.Play("Crece");
+            animHongosGrandes12.Play("Crece");
+            animHongosGrandes13.Play("Crece");
+            animHongosGrandes14.Play("Crece");
+            animHongosGrandes15.Play("Crece");
         }
 
         Debug.Log("✨ Pocion completada");
