@@ -4,7 +4,6 @@ using UnityEngine;
 public class ZonaInteractiva : MonoBehaviour
 {
     public GameObject textoUI;
-    public GameObject textoUI2;
     private bool jugadorEnZona = false;
     public Animator PuertaEntrada;
 
@@ -13,7 +12,6 @@ public class ZonaInteractiva : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             textoUI.SetActive(true);
-            textoUI2.SetActive(true);
             jugadorEnZona = true;
             PuertaEntrada.Play("PuertaEntradaCueva");
         }
@@ -24,7 +22,6 @@ public class ZonaInteractiva : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             textoUI.SetActive(false);
-            textoUI2.SetActive(false);
             jugadorEnZona = false;
         }
     }
