@@ -10,10 +10,14 @@ public class AnimTexturaEstatua : MonoBehaviour
     public Animator CuerpoSolarius;
     public Animator CabezaSolarius;
     public Puntos puntosScript;
+    public GameObject mensajeFinalCueva;
 
     private bool SinEsfera = false;
 
-
+    private void Start()
+    {
+        mensajeFinalCueva.SetActive(false);
+    }
     private void Update()
     {
         if (puntosScript.puntos == 12 && !SinEsfera)
@@ -30,6 +34,7 @@ public class AnimTexturaEstatua : MonoBehaviour
         yield return new WaitForSeconds(3);
         CuerpoSolarius.Play("ConEmissive");
         CabezaSolarius.Play("ConEmissive");
+        mensajeFinalCueva.SetActive(true);
         yield return new WaitForSeconds(7);
         PuertaSalida.Play("PuertaSalidaCueva");
     }

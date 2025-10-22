@@ -9,6 +9,7 @@ public class BaseLlave : MonoBehaviour
     public Animator animLlaveBase; // Animator de esa llave
     public ParticleSystem particulasPortal; // Sistema de partículas a activar
     public GameObject muroBloqueador; //muro invisible que bloquea el paso
+    public GameObject mensajeFinalFlores;
     public GameObject muroNota;
     public GameObject panelInteraccionLlave;
     private FlorActivador[] floresParaActivar;
@@ -34,6 +35,7 @@ public class BaseLlave : MonoBehaviour
             muroNota.SetActive(true);
             muroBloqueador.SetActive(true);
             panelInteraccionLlave.SetActive(false);
+            mensajeFinalFlores.SetActive(false);
         }
     }
 
@@ -119,6 +121,7 @@ public class BaseLlave : MonoBehaviour
         {
             muroBloqueador.SetActive(false);
             muroNota.SetActive(false);
+            mensajeFinalFlores.SetActive(true);
             Debug.Log("✅ Muro desactivado, podés avanzar.");
         }
     }

@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
 
 public class BaseCaldero : MonoBehaviour
 {
@@ -57,7 +58,10 @@ public class BaseCaldero : MonoBehaviour
     public Animator animHongosGrandes49;
     public Animator animHongosGrandes50;
 
-
+    public GameObject paredHongos;
+    public GameObject mensajeParedHongo;
+    public GameObject mensajeFinalHongo;
+    
 
 
 
@@ -65,6 +69,14 @@ public class BaseCaldero : MonoBehaviour
 
     private bool jugadorEnZona = false;
 
+    private void Start()
+    {
+        
+        mensajeFinalHongo.SetActive(false);
+        paredHongos.SetActive(true);
+        mensajeParedHongo.SetActive(true);
+
+    }
     void Update()
     {
         if (jugadorEnZona && Input.GetKeyDown(KeyCode.E))
@@ -107,6 +119,9 @@ public class BaseCaldero : MonoBehaviour
             animHongo.gameObject.SetActive(true);
             yield return new WaitForEndOfFrame();
             animHongo.SetTrigger("Caer");
+            mensajeFinalHongo.SetActive(true);
+            Destroy(paredHongos);
+            Destroy(mensajeParedHongo);
         }
 
         yield return new WaitForSeconds(1.5f);
