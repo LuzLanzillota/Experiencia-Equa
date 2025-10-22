@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Cupula : MonoBehaviour
 {
+    [Header("Referencias principales")]
     public Animator cupula;
     public GameObject panelInicio;
-    public GameObject panelInteraccion;
+    public GameObject panelInteraccion; // Empty con collider y el script PanelTrigger
     private bool jugadorDentro = false;
     private GameObject currentPlayer;
     public static bool panelInicioTerminado = false;
 
-    // radio en el que buscamos llaves alrededor del jugador al cerrar el panel
+    [Header("Configuraciones")]
     [Tooltip("Radio para buscar llaves cerca del jugador al cerrar el panel")]
     public float radioBusquedaLlaves = 3f;
 
@@ -31,8 +32,25 @@ public class Cupula : MonoBehaviour
         cupula.Play("CupulaArriba");
         Debug.Log("Cupula moviéndose...");
         yield return new WaitForSeconds(2f);
+
+        // 🔹 Pedimos al PanelTrigger que oculte el mensaje
+        PanelTrigger panelTrigger = panelInteraccion.GetComponent<PanelTrigger>();
+        if (panelTrigger != null)
+        {
+            panelTrigger.OcultarPanel();
+            Debug.Log("Panel de interacción ocultado por la cúpula.");
+        }
+
+        // 🔹 Desactiva el collider del panelInteraccion (para que no se reactive)
+        if (panelInteraccion.TryGetComponent(out Collider col))
+        {
+            col.enabled = false;
+            Debug.Log("Collider del panel de interacción desactivado.");
+        }
+
+        // 🔹 Muestra el panel de inicio
         panelInicio.SetActive(true);
-        Destroy(panelInteraccion);
+        Debug.Log("Panel de inicio activado.");
     }
 
     private void OnTriggerExit(Collider other)
@@ -49,12 +67,9 @@ public class Cupula : MonoBehaviour
     {
         if (jugadorDentro && Input.GetKeyDown(KeyCode.E))
         {
-            // Cerrás el panel de inicio
             panelInicio.SetActive(false);
             panelInicioTerminado = true;
             Debug.Log("Panel de inicio cerrado. Llave(s) disponibles o se recogerán si están cerca.");
-
-            // Intentamos recoger llaves cercanas (si hay)
             TryCollectNearbyLlaves();
         }
     }
@@ -63,20 +78,17 @@ public class Cupula : MonoBehaviour
     {
         if (currentPlayer == null) return;
 
-        // Buscamos colliders alrededor del jugador (ajustá radioBusquedaLlaves en el Inspector)
         Collider[] hits = Physics.OverlapSphere(currentPlayer.transform.position, radioBusquedaLlaves);
         foreach (Collider c in hits)
         {
             Llave llave = c.GetComponent<Llave>();
             if (llave != null)
             {
-                // Llamamos al método público de la llave para que muestre su panel y se destruya
                 llave.RecogerPorCierrePanel(currentPlayer);
             }
         }
     }
 
-    // Visualización del gizmo del radio en el editor (opcional)
     private void OnDrawGizmosSelected()
     {
         if (currentPlayer != null)

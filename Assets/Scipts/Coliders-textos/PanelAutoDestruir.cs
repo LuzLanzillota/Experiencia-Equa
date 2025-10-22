@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class PanelTrigger : MonoBehaviour
@@ -20,6 +20,13 @@ public class PanelTrigger : MonoBehaviour
         yield return new WaitForSeconds(tiempoVisible);
         panel.SetActive(false);
     }
-}
 
+    // 👇 Método público para permitir que otros scripts oculten el panel
+    public void OcultarPanel()
+    {
+        StopAllCoroutines();   // detiene cualquier corrutina de ocultamiento automático
+        panel.SetActive(false);
+        Debug.Log("Panel de interacción ocultado manualmente desde otro script.");
+    }
+}
 
