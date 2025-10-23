@@ -6,6 +6,11 @@ public class InteraccionPiedra : MonoBehaviour
     public Animator animator;    // Animator de esta piedra
     private bool puedeInteractuar = false;
     private bool animacionComenzada = false;
+    public AudioSource Piedra1;
+    //public AudioSource Piedra2;
+    //public AudioSource Piedra3;
+    //public AudioSource Piedra4;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,11 +31,18 @@ public class InteraccionPiedra : MonoBehaviour
 
     private void Update()
     {
-        if (puedeInteractuar && !animacionComenzada && Input.GetKeyDown(KeyCode.E))
+        if (puedeInteractuar && !animacionComenzada)
         {
-            animacionComenzada = true;
-            animator.SetTrigger("Interactua"); // activa la animación
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Presionó E");
+                animacionComenzada = true;
+                Piedra1.Play();
+                animator.SetTrigger("Interactua");
+                
+            }
         }
+
     }
 
     // Este método será llamado desde un evento de animación al final del clip

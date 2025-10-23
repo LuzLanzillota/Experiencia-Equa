@@ -57,7 +57,7 @@ public class BaseCaldero : MonoBehaviour
     public Animator animHongosGrandes48;
     public Animator animHongosGrandes49;
     public Animator animHongosGrandes50;
-
+    public AudioSource HongosCrecen;
     public GameObject paredHongos;
     public GameObject mensajeParedHongo;
     public GameObject mensajeFinalHongo;
@@ -189,7 +189,7 @@ public class BaseCaldero : MonoBehaviour
             animHongosGrandes48.Play("Crece");
             animHongosGrandes49.Play("Crece");
             animHongosGrandes50.Play("Crece");
-
+            HongosCrecen.Play();
         }
 
         Debug.Log("✨ Pocion completada");

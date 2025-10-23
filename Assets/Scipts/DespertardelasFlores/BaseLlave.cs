@@ -11,6 +11,7 @@ public class BaseLlave : MonoBehaviour
     public GameObject muroBloqueador; //muro invisible que bloquea el paso
     public GameObject mensajeFinalFlores;
     public GameObject muroNota;
+    public AudioSource SonidoPortal;
     public GameObject panelInteraccionLlave;
     private FlorActivador[] floresParaActivar;
     private bool jugadorEnZona = false;
@@ -94,7 +95,7 @@ public class BaseLlave : MonoBehaviour
 
         // Activar animación del portal
         Portal.SetTrigger("Abrir");
-
+        SonidoPortal.Play();
         // Activar partículas
         if (particulasPortal != null)
         {
