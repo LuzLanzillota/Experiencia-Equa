@@ -167,28 +167,6 @@ public class BaseCaldero : MonoBehaviour
             animHongosGrandes26.Play("Crece");
             animHongosGrandes27.Play("Crece");
             animHongosGrandes28.Play("Crece");
-            animHongosGrandes29.Play("Crece");
-            animHongosGrandes30.Play("Crece");
-            animHongosGrandes31.Play("Crece");
-            animHongosGrandes32.Play("Crece");
-            animHongosGrandes33.Play("Crece");
-            animHongosGrandes34.Play("Crece");
-            animHongosGrandes35.Play("Crece");
-            animHongosGrandes36.Play("Crece");
-            animHongosGrandes37.Play("Crece");
-            animHongosGrandes38.Play("Crece");
-            animHongosGrandes39.Play("Crece");
-            animHongosGrandes40.Play("Crece");
-            animHongosGrandes41.Play("Crece");
-            animHongosGrandes42.Play("Crece");
-            animHongosGrandes43.Play("Crece");
-            animHongosGrandes44.Play("Crece");
-            animHongosGrandes45.Play("Crece");
-            animHongosGrandes46.Play("Crece");
-            animHongosGrandes47.Play("Crece");
-            animHongosGrandes48.Play("Crece");
-            animHongosGrandes49.Play("Crece");
-            animHongosGrandes50.Play("Crece");
             HongosCrecen.Play();
         }
 

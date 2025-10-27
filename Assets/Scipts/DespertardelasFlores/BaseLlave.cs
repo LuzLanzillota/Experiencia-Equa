@@ -17,6 +17,7 @@ public class BaseLlave : MonoBehaviour
     private FlorActivador[] floresParaActivar;
     private bool jugadorEnZona = false;
     private bool condicionesCompletas = false; // Bandera para saber si ya se activó todo
+    public Animator Gema;
 
     void Start()
     {
@@ -137,6 +138,7 @@ public class BaseLlave : MonoBehaviour
             muroBloqueador.SetActive(false);
             muroNota.SetActive(false);
             mensajeFinalFlores.SetActive(true);
+            Gema.Play("Esta");
             Debug.Log("✅ Muro desactivado, podés avanzar.");
         }
     }

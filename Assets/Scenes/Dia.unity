@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 0.72
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.1504539, g: 0.16928233, b: 0.21698111, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: fdf3d4ed3b84d6e4aa271747295c578b, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: bcb2bf6c446ee6042844a317fc7e1e4b, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -11426,6 +11426,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.05517769, y: 0.022131376, z: 0.03816476}
   m_Center: {x: -0.00080269814, y: -0.000000023932525, z: 0.0038028362}
+--- !u!114 &176643035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176643027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71981040b8824e4385bc02b43caabe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objPuntos: {fileID: 44214003}
 --- !u!1 &179627330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5311761224359265228, guid: 48d0045f1bb20fd478579101a7b52f2e,
@@ -20220,6 +20233,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1959076531}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 198779bd1795b3f45aa830689bde90af,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1959076535}
   m_SourcePrefab: {fileID: 100100000, guid: 198779bd1795b3f45aa830689bde90af, type: 3}
 --- !u!4 &357888667 stripped
 Transform:
@@ -22779,6 +22796,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.057202924, y: 0.02213137, z: 0.037089538}
   m_Center: {x: 0.0025770543, y: 0.000000021369042, z: 0.0026191347}
+--- !u!114 &415614884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415614876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71981040b8824e4385bc02b43caabe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objPuntos: {fileID: 44214003}
 --- !u!1001 &415938428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29672,7 +29702,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 198779bd1795b3f45aa830689bde90af,
         type: 3}
       propertyPath: m_Name
-      value: Gema2 (3)
+      value: Gema-Naranja
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29682,6 +29712,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 695442686}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 198779bd1795b3f45aa830689bde90af,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 695442690}
   m_SourcePrefab: {fileID: 100100000, guid: 198779bd1795b3f45aa830689bde90af, type: 3}
 --- !u!1 &603892598 stripped
 GameObject:
@@ -31329,17 +31363,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fe17ea119b0aee645ab0be4faa387e5a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 79.75
+      value: 69.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe17ea119b0aee645ab0be4faa387e5a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 53.19
+      value: 46.54
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe17ea119b0aee645ab0be4faa387e5a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 89.04
+      value: 90.01
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe17ea119b0aee645ab0be4faa387e5a,
         type: 3}
@@ -31376,6 +31410,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: fe17ea119b0aee645ab0be4faa387e5a,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: fe17ea119b0aee645ab0be4faa387e5a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -31384,7 +31423,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fe17ea119b0aee645ab0be4faa387e5a,
         type: 3}
       propertyPath: m_Name
-      value: Gema1
+      value: Gema-Azul
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31398,6 +31437,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1129703218}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fe17ea119b0aee645ab0be4faa387e5a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1129703222}
   m_SourcePrefab: {fileID: 100100000, guid: fe17ea119b0aee645ab0be4faa387e5a, type: 3}
 --- !u!1001 &635582533
 PrefabInstance:
@@ -31693,6 +31736,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.046944637, y: 0.019910762, z: 0.028865525}
   m_Center: {x: -0.00028699875, y: 0.0054733427, z: -0.0022368762}
+--- !u!114 &639309056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639309048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71981040b8824e4385bc02b43caabe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objPuntos: {fileID: 44214003}
 --- !u!1 &640319722
 GameObject:
   m_ObjectHideFlags: 0
@@ -34967,6 +35023,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.043371886, y: 0.022131376, z: 0.031576958}
   m_Center: {x: 0.0011011219, y: -0.000000023831333, z: -0.00038826943}
+--- !u!114 &695442690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695442682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71981040b8824e4385bc02b43caabe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objPuntos: {fileID: 44214003}
 --- !u!4 &695540394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5255244458751031634, guid: db18f21f84fbd3b4686fc36c7e2d2350,
@@ -44416,12 +44485,16 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 198779bd1795b3f45aa830689bde90af,
         type: 3}
       propertyPath: m_Name
-      value: Gema2 (1)
+      value: Gema-Amarilla
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 198779bd1795b3f45aa830689bde90af,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 176643035}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 198779bd1795b3f45aa830689bde90af,
         type: 3}
       insertIndex: -1
@@ -53039,6 +53112,7 @@ Transform:
   - {fileID: 1437178193}
   - {fileID: 918673964}
   - {fileID: 910018125}
+  - {fileID: 1452727027}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1097996269 stripped
@@ -55397,6 +55471,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objPuntos: {fileID: 44214003}
+--- !u!95 &1129703222
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129703212}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7d6495738ab98fa44a3148e245976a79, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1130501132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57079,6 +57174,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575a685e10ef79e43b8225e68d2d546a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1157643382
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1157643383}
+  - component: {fileID: 1157643385}
+  m_Layer: 0
+  m_Name: skybox tarde
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1157643383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157643382}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22.6, y: 38, z: -207.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1452727027}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1157643385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157643382}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 13.343033, y: 68.134766, z: 89.798485}
+  m_Center: {x: -6.1715164, y: -1.4834595, z: -0.4098854}
 --- !u!1001 &1160122278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68692,7 +68840,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fe17ea119b0aee645ab0be4faa387e5a,
         type: 3}
       propertyPath: m_Name
-      value: Gema1 (1)
+      value: Gema-Celeste
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -68702,6 +68850,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 639309052}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fe17ea119b0aee645ab0be4faa387e5a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 639309056}
   m_SourcePrefab: {fileID: 100100000, guid: fe17ea119b0aee645ab0be4faa387e5a, type: 3}
 --- !u!1001 &1387501175
 PrefabInstance:
@@ -71502,6 +71654,38 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1202571463}
   m_SourcePrefab: {fileID: 100100000, guid: e1cdec326feb9b3489f0414eb4ffcac5, type: 3}
+--- !u!1 &1452727026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1452727027}
+  m_Layer: 0
+  m_Name: Colliders skybox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1452727027
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452727026}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -13.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1157643383}
+  m_Father: {fileID: 1095163162}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1453615093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72739,6 +72923,7 @@ MonoBehaviour:
   muroNota: {fileID: 1761347027}
   SonidoPortal: {fileID: 1646656260}
   panelInteraccionLlave: {fileID: 1896665428}
+  Gema: {fileID: 1129703222}
 --- !u!1001 &1462675627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76785,7 +76970,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -527.5
+      value: -543.5
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -76795,7 +76980,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 377.5
+      value: 424.8
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -78926,12 +79111,16 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 198779bd1795b3f45aa830689bde90af,
         type: 3}
       propertyPath: m_Name
-      value: Gema2
+      value: Gema-Rosa
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 198779bd1795b3f45aa830689bde90af,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 415614884}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 198779bd1795b3f45aa830689bde90af,
         type: 3}
       insertIndex: -1
@@ -98901,6 +99090,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.04242598, y: 0.02213137, z: 0.038476367}
   m_Center: {x: 0.002239635, y: 0.000000018989999, z: -0.0011269159}
+--- !u!114 &1959076535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959076527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71981040b8824e4385bc02b43caabe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objPuntos: {fileID: 44214003}
 --- !u!4 &1962928771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5255244458751031634, guid: db18f21f84fbd3b4686fc36c7e2d2350,
