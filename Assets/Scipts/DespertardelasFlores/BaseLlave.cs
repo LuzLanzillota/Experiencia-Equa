@@ -5,17 +5,18 @@ using System.Linq;
 public class BaseLlave : MonoBehaviour
 {
     public Animator Portal;
+    public Animator LuzPortalAnimator; //  Nuevo Animator para LuzPortal-2
     public GameObject llaveEnBase; // La llave que se activa y gira
     public Animator animLlaveBase; // Animator de esa llave
     public ParticleSystem particulasPortal; // Sistema de partículas a activar
-    public GameObject muroBloqueador; //muro invisible que bloquea el paso
+    public GameObject muroBloqueador; // Muro invisible que bloquea el paso
     public GameObject mensajeFinalFlores;
     public GameObject muroNota;
     public AudioSource SonidoPortal;
     public GameObject panelInteraccionLlave;
     private FlorActivador[] floresParaActivar;
     private bool jugadorEnZona = false;
-    private bool condicionesCompletas = false; //bandera para saber si ya se activó todo
+    private bool condicionesCompletas = false; // Bandera para saber si ya se activó todo
 
     void Start()
     {
@@ -95,7 +96,20 @@ public class BaseLlave : MonoBehaviour
 
         // Activar animación del portal
         Portal.SetTrigger("Abrir");
-        SonidoPortal.Play();
+
+        //  Activar animación de LuzPortal-2
+        if (LuzPortalAnimator != null)
+        {
+            LuzPortalAnimator.SetTrigger("Abrir");
+            Debug.Log("✨ Animación de LuzPortal activada");
+        }
+
+        // Reproducir sonido del portal
+        if (SonidoPortal != null)
+        {
+            SonidoPortal.Play();
+        }
+
         // Activar partículas
         if (particulasPortal != null)
         {
