@@ -60,7 +60,6 @@ public class BaseCaldero : MonoBehaviour
     public AudioSource HongosCrecen;
     public GameObject paredHongos;
     public GameObject mensajeParedHongo;
-    public GameObject mensajeFinalHongo;
     
 
 
@@ -71,8 +70,6 @@ public class BaseCaldero : MonoBehaviour
 
     private void Start()
     {
-        
-        mensajeFinalHongo.SetActive(false);
         paredHongos.SetActive(true);
         mensajeParedHongo.SetActive(true);
 
@@ -119,7 +116,6 @@ public class BaseCaldero : MonoBehaviour
             animHongo.gameObject.SetActive(true);
             yield return new WaitForEndOfFrame();
             animHongo.SetTrigger("Caer");
-            mensajeFinalHongo.SetActive(true);
             Destroy(paredHongos);
             Destroy(mensajeParedHongo);
         }
