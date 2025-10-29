@@ -11,6 +11,7 @@ public class AnimTexturaEstatua : MonoBehaviour
     public Animator CabezaSolarius;
     public Puntos puntosScript;
     public GameObject mensajeFinalCueva;
+    public AudioSource AudioSource;
 
     private bool SinEsfera = false;
 
@@ -20,7 +21,7 @@ public class AnimTexturaEstatua : MonoBehaviour
     }
     private void Update()
     {
-        if (puntosScript.puntos == 12 && !SinEsfera)
+        if (puntosScript.puntos == 6 && !SinEsfera)
         {
             StartCoroutine(ReproducirAnimacion());
         }
@@ -37,6 +38,7 @@ public class AnimTexturaEstatua : MonoBehaviour
         mensajeFinalCueva.SetActive(true);
         yield return new WaitForSeconds(7);
         PuertaSalida.Play("PuertaSalidaCueva");
+        AudioSource.Play();
     }
 
     }

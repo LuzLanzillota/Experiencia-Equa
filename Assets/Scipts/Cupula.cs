@@ -67,7 +67,7 @@ public class Cupula : MonoBehaviour
     {
         if (jugadorDentro && Input.GetKeyDown(KeyCode.E))
         {
-            panelInicio.SetActive(false);
+            Destroy(panelInicio);
             panelInicioTerminado = true;
             Debug.Log("Panel de inicio cerrado. Llave(s) disponibles o se recogerán si están cerca.");
             TryCollectNearbyLlaves();
