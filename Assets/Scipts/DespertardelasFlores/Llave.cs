@@ -3,8 +3,9 @@ using System.Collections;
 
 public class Llave : MonoBehaviour
 {
-    public GameObject panelLlave;        // panel que se muestra cuando la llave se recoge
-    public bool activaDesdeInicio = true; // si la llave está activa desde el comienzo o no
+    public GameObject panelLlave;         // Panel que se muestra cuando la llave se recoge
+    public bool activaDesdeInicio = true; // Si la llave está activa desde el comienzo o no
+    public AudioSource sonidoAgarrar;     // 🔊 Nuevo campo para el sonido de recoger la llave
 
     private Collider col;
     private MeshRenderer meshRend;
@@ -17,12 +18,8 @@ public class Llave : MonoBehaviour
 
     private void Start()
     {
-        // Si querés que la llave no sea interactiva hasta que se cierre el panel de inicio,
-        // seteá activaDesdeInicio = false en el Inspector.
         if (!activaDesdeInicio)
-        {
             SetInteractable(false);
-        }
     }
 
     private void SetInteractable(bool ok)
@@ -37,21 +34,23 @@ public class Llave : MonoBehaviour
         {
             Debug.Log("Mostrando panel de la llave: " + panelLlave.name);
 
-            // Oculta visualmente la llave inmediatamente (pero la mantenemos para Destroy al final)
+            // 🔊 Reproducir sonido de recoger la llave
+            if (sonidoAgarrar != null && sonidoAgarrar.clip != null)
+                AudioSource.PlayClipAtPoint(sonidoAgarrar.clip, transform.position);
+
+            // Ocultar visualmente la llave y desactivar interacción
             if (meshRend != null)
                 meshRend.enabled = false;
 
-            // Desactivamos el collider para evitar múltiples recogidas
             if (col != null)
                 col.enabled = false;
 
-            // Mostramos el panel de la llave
+            // Mostrar el panel
             panelLlave.SetActive(true);
 
-            // Espera el tiempo que quieras ver el panel
             yield return new WaitForSeconds(2f);
 
-            // Ocultamos el panel y destruimos la llave del mundo
+            // Ocultar panel y destruir la llave
             panelLlave.SetActive(false);
             Debug.Log("Panel de llave desactivado. Destruyendo la llave.");
             Destroy(gameObject);
@@ -63,11 +62,9 @@ public class Llave : MonoBehaviour
         }
     }
 
-    // Método público que puede llamar Cupula para "recoger" la llave cuando se cierra el panel de inicio.
-    // Se le pasa el jugador por si querés marcar algo en su manager.
+    // 🔸 Recogida por cierre de panel
     public void RecogerPorCierrePanel(GameObject jugador)
     {
-        // Si hay un manager de llaves, lo marcamos
         if (jugador != null)
         {
             LlaveManager manager = jugador.GetComponent<LlaveManager>();
@@ -77,28 +74,26 @@ public class Llave : MonoBehaviour
             }
         }
 
-        // Iniciamos la rutina para mostrar el panel de la llave y destruirla
         StartCoroutine(MostrarPanelYDestruir(gameObject));
     }
 
-    // Recogida por trigger normal (si el panel de inicio ya terminó)
+    // 🔸 Recogida por trigger normal
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // Si el panel de inicio NO terminó, no permitimos agarrarla desde trigger
             if (!Cupula.panelInicioTerminado)
             {
                 Debug.Log("No podés agarrar la llave hasta terminar el panel de inicio.");
                 return;
             }
 
-            // marcamos en el manager del jugador y mostramos panel
             LlaveManager manager = other.GetComponent<LlaveManager>();
             if (manager != null)
             {
                 manager.tieneLlave = true;
             }
+
             StartCoroutine(MostrarPanelYDestruir(gameObject));
         }
     }
