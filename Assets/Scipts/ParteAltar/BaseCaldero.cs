@@ -35,36 +35,12 @@ public class BaseCaldero : MonoBehaviour
     public Animator animHongosGrandes26;
     public Animator animHongosGrandes27;
     public Animator animHongosGrandes28;
-    public Animator animHongosGrandes29;
-    public Animator animHongosGrandes30;
-    public Animator animHongosGrandes31;
-    public Animator animHongosGrandes32;
-    public Animator animHongosGrandes33;
-    public Animator animHongosGrandes34;
-    public Animator animHongosGrandes35;
-    public Animator animHongosGrandes36;
-    public Animator animHongosGrandes37;
-    public Animator animHongosGrandes38;
-    public Animator animHongosGrandes39;
-    public Animator animHongosGrandes40;
-    public Animator animHongosGrandes41;
-    public Animator animHongosGrandes42;
-    public Animator animHongosGrandes43;
-    public Animator animHongosGrandes44;
-    public Animator animHongosGrandes45;
-    public Animator animHongosGrandes46;
-    public Animator animHongosGrandes47;
-    public Animator animHongosGrandes48;
-    public Animator animHongosGrandes49;
-    public Animator animHongosGrandes50;
     public AudioSource HongosCrecen;
     public GameObject paredHongos;
     public GameObject mensajeParedHongo;
-    
 
-
-
-
+    // 🔹 NUEVO: referencia al Animator de la Gema
+    public Animator Gema;
 
     private bool jugadorEnZona = false;
 
@@ -72,8 +48,8 @@ public class BaseCaldero : MonoBehaviour
     {
         paredHongos.SetActive(true);
         mensajeParedHongo.SetActive(true);
-
     }
+
     void Update()
     {
         if (jugadorEnZona && Input.GetKeyDown(KeyCode.E))
@@ -88,7 +64,6 @@ public class BaseCaldero : MonoBehaviour
                     Debug.Log("🧪 Iniciando creación de poción");
                     StartCoroutine(CrearPocion());
 
-                    // Evita repetir la acción
                     manager.tieneSemilla = false;
                     manager.tieneHongo = false;
                 }
@@ -102,15 +77,13 @@ public class BaseCaldero : MonoBehaviour
 
     IEnumerator CrearPocion()
     {
-        // 1️⃣ Semilla cayendo
         if (animSemilla != null)
         {
-            animSemilla.gameObject.SetActive(true); // Activa el objeto
-            yield return new WaitForEndOfFrame();   // Espera un frame para asegurar la activación
+            animSemilla.gameObject.SetActive(true);
+            yield return new WaitForEndOfFrame();
             animSemilla.SetTrigger("Caer");
         }
 
-        // 2️⃣ Hongo cayendo
         if (animHongo != null)
         {
             animHongo.gameObject.SetActive(true);
@@ -122,7 +95,6 @@ public class BaseCaldero : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        // 3️⃣ Agua subiendo
         if (animAgua != null)
         {
             animAgua.gameObject.SetActive(true);
@@ -132,7 +104,6 @@ public class BaseCaldero : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        // 4️⃣ Hongos grandes creciendo
         if (animHongosGrandes != null)
         {
             animHongosGrandes.Play("Crece");
@@ -164,6 +135,12 @@ public class BaseCaldero : MonoBehaviour
             animHongosGrandes27.Play("Crece");
             animHongosGrandes28.Play("Crece");
             HongosCrecen.Play();
+        }
+
+        // 🔹 NUEVO: al final, activamos la animación de la Gema
+        if (Gema != null)
+        {
+            Gema.Play("Esta");
         }
 
         Debug.Log("✨ Pocion completada");
