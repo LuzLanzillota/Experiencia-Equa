@@ -11,6 +11,7 @@ public class BaseLlave : MonoBehaviour
     public ParticleSystem particulasPortal; // Sistema de partículas a activar
     public GameObject muroBloqueador; // Muro invisible que bloquea el paso
     public GameObject muroNota;
+    public GameObject NotaGema;
     public AudioSource SonidoPortal;
     public GameObject panelInteraccionLlave;
     private FlorActivador[] floresParaActivar;
@@ -34,6 +35,7 @@ public class BaseLlave : MonoBehaviour
         // Asegurar que el muro arranque activado (bloqueando el paso)
         if (muroBloqueador != null)
         {
+            NotaGema.SetActive(false);
             muroNota.SetActive(true);
             muroBloqueador.SetActive(true);
             panelInteraccionLlave.SetActive(false);
@@ -133,8 +135,10 @@ public class BaseLlave : MonoBehaviour
 
         if (condicionesCompletas && muroBloqueador != null)
         {
+            
             muroBloqueador.SetActive(false);
             muroNota.SetActive(false);
+            NotaGema.SetActive(true);
             Gema.Play("Esta");
             Debug.Log("✅ Muro desactivado, podés avanzar.");
         }
