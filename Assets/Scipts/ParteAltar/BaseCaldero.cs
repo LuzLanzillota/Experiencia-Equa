@@ -38,6 +38,7 @@ public class BaseCaldero : MonoBehaviour
     public Animator animHongosGrandes27;
     public Animator animHongosGrandes28;
     public AudioSource HongosCrecen;
+    public AudioSource Agua;
     public GameObject paredHongos;
     public GameObject mensajeParedHongo;
     public Animator Gema;
@@ -101,6 +102,7 @@ public class BaseCaldero : MonoBehaviour
             animAgua.gameObject.SetActive(true);
             yield return new WaitForEndOfFrame();
             animAgua.SetTrigger("Subir");
+            Agua.Play();
         }
 
         // 💧 Animación del agua 2

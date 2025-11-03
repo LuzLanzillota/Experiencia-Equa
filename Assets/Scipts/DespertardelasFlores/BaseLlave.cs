@@ -13,11 +13,13 @@ public class BaseLlave : MonoBehaviour
     public GameObject muroNota;
     public GameObject NotaGema;
     public AudioSource SonidoPortal;
+    public AudioSource SonidoLlave;
     public GameObject panelInteraccionLlave;
     private FlorActivador[] floresParaActivar;
     private bool jugadorEnZona = false;
     private bool condicionesCompletas = false; // Bandera para saber si ya se activó todo
     public Animator Gema;
+    
 
     void Start()
     {
@@ -59,6 +61,7 @@ public class BaseLlave : MonoBehaviour
 
                     // Reproducir la animación de giro
                     animLlaveBase.Play("GiroLlave");
+                    SonidoLlave.Play();
                     Destroy(panelInteraccionLlave);
 
                     // Iniciar delay para abrir el portal

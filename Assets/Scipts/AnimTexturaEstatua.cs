@@ -11,7 +11,8 @@ public class AnimTexturaEstatua : MonoBehaviour
     public Animator CabezaSolarius;
     public Puntos puntosScript;
     public GameObject mensajeFinalCueva;
-    public AudioSource AudioSource;
+    public AudioSource AudioPuerta;
+    public AudioSource AudioEstatua;
     public Animator Gema;
 
     private bool SinEsfera = false;
@@ -38,12 +39,13 @@ public class AnimTexturaEstatua : MonoBehaviour
 
         CuerpoSolarius.Play("ConEmissive");
         CabezaSolarius.Play("ConEmissive");
+        AudioEstatua.Play();
         mensajeFinalCueva.SetActive(true);
 
         yield return new WaitForSeconds(7);
 
         PuertaSalida.Play("PuertaSalidaCueva");
-        AudioSource.Play();
+        AudioPuerta.Play();
 
         yield return new WaitForSeconds(1.5f); // ajustá este valor según el tiempo de apertura
 
