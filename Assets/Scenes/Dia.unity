@@ -11324,6 +11324,8 @@ MonoBehaviour:
   objPuntos: {fileID: 44214003}
   TengoGema: {fileID: 0}
   sonidoAgarrar: {fileID: 263851828}
+  animGema: {fileID: 176643039}
+  nombreAnimGema: GemaActiva
 --- !u!95 &176643039
 Animator:
   serializedVersion: 5
@@ -23304,6 +23306,8 @@ MonoBehaviour:
   objPuntos: {fileID: 44214003}
   TengoGema: {fileID: 0}
   sonidoAgarrar: {fileID: 263851828}
+  animGema: {fileID: 415614888}
+  nombreAnimGema: GemaActiva
 --- !u!95 &415614888
 Animator:
   serializedVersion: 5
@@ -25365,52 +25369,52 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ad6fc7068e2484b4eb64cb33a9ad3232,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.934387
+      value: -7.9034843
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad6fc7068e2484b4eb64cb33a9ad3232,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.0341454
+      value: 4.036049
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad6fc7068e2484b4eb64cb33a9ad3232,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.5572815
+      value: -11.562965
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad6fc7068e2484b4eb64cb33a9ad3232,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.22393946
+      value: -0.07296134
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad6fc7068e2484b4eb64cb33a9ad3232,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.68183917
+      value: 0.6830545
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad6fc7068e2484b4eb64cb33a9ad3232,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6950918
+      value: 0.71671265
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad6fc7068e2484b4eb64cb33a9ad3232,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.042353977
+      value: 0.12015114
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad6fc7068e2484b4eb64cb33a9ad3232,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -15.777
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad6fc7068e2484b4eb64cb33a9ad3232,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -183.548
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad6fc7068e2484b4eb64cb33a9ad3232,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 87.737
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: ad6fc7068e2484b4eb64cb33a9ad3232,
         type: 3}
@@ -26878,89 +26882,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 884063784}
   m_SourcePrefab: {fileID: 100100000, guid: ad4fd6efd4bfab04490c436bd98b2b7c, type: 3}
---- !u!1001 &517167445
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 03d99052c3f2c6e4882e8b07879ebe0c,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 25.23236
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 03d99052c3f2c6e4882e8b07879ebe0c,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 25.232363
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 03d99052c3f2c6e4882e8b07879ebe0c,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 25.232363
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 03d99052c3f2c6e4882e8b07879ebe0c,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 215.75337
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 03d99052c3f2c6e4882e8b07879ebe0c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 52.49
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 03d99052c3f2c6e4882e8b07879ebe0c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 440.24377
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 03d99052c3f2c6e4882e8b07879ebe0c,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.15740533
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 03d99052c3f2c6e4882e8b07879ebe0c,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.60050076
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 03d99052c3f2c6e4882e8b07879ebe0c,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.11391775
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 03d99052c3f2c6e4882e8b07879ebe0c,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.77565783
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 03d99052c3f2c6e4882e8b07879ebe0c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.706
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 03d99052c3f2c6e4882e8b07879ebe0c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -75.353
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 03d99052c3f2c6e4882e8b07879ebe0c,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -157.603
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 03d99052c3f2c6e4882e8b07879ebe0c,
-        type: 3}
-      propertyPath: m_Name
-      value: BaseLlave-Noche
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 03d99052c3f2c6e4882e8b07879ebe0c, type: 3}
 --- !u!1 &517513665
 GameObject:
   m_ObjectHideFlags: 0
@@ -32647,6 +32568,8 @@ MonoBehaviour:
   objPuntos: {fileID: 44214003}
   TengoGema: {fileID: 0}
   sonidoAgarrar: {fileID: 263851828}
+  animGema: {fileID: 0}
+  nombreAnimGema: GemaActiva
 --- !u!1 &640243511
 GameObject:
   m_ObjectHideFlags: 0
@@ -36435,6 +36358,8 @@ MonoBehaviour:
   objPuntos: {fileID: 44214003}
   TengoGema: {fileID: 0}
   sonidoAgarrar: {fileID: 263851828}
+  animGema: {fileID: 0}
+  nombreAnimGema: GemaActiva
 --- !u!4 &695540394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5255244458751031634, guid: db18f21f84fbd3b4686fc36c7e2d2350,
@@ -42485,6 +42410,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LuzPortal-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8c95cffd6b77ebe47b5d2cb19ca13215,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -51136,8 +51066,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 26.734707, y: 13.599265, z: 32.043697}
-  m_Center: {x: 0.016032565, y: 6.299634, z: 5.8464007}
+  m_Size: {x: 26.734707, y: 13.599264, z: 156.13577}
+  m_Center: {x: 0.016024293, y: 6.299634, z: 10.170422}
 --- !u!4 &999646147 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8914b60e9b14fb9429834c4ba2059098,
@@ -58201,6 +58131,8 @@ MonoBehaviour:
   objPuntos: {fileID: 44214003}
   TengoGema: {fileID: 642248151}
   sonidoAgarrar: {fileID: 263851828}
+  animGema: {fileID: 1129703222}
+  nombreAnimGema: GemaActiva
 --- !u!114 &1129703236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80965,7 +80897,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -544.1
+      value: -520.7
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -80975,7 +80907,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 423.8
+      value: 387.9
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -104728,6 +104660,8 @@ MonoBehaviour:
   objPuntos: {fileID: 44214003}
   TengoGema: {fileID: 0}
   sonidoAgarrar: {fileID: 263851828}
+  animGema: {fileID: 0}
+  nombreAnimGema: GemaActiva
 --- !u!4 &1962928771 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5255244458751031634, guid: db18f21f84fbd3b4686fc36c7e2d2350,
@@ -106046,7 +105980,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e2bdb7c202de6f741bd7205c516e4f20,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.809
+      value: -7.837
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2bdb7c202de6f741bd7205c516e4f20,
         type: 3}
@@ -114628,4 +114562,3 @@ SceneRoots:
   - {fileID: 362313809}
   - {fileID: 1724271729}
   - {fileID: 674606091927929247}
-  - {fileID: 517167445}

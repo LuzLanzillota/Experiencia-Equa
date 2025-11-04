@@ -39,7 +39,7 @@ public class PanelConVideo : MonoBehaviour
 
         if (panelActivo && Input.GetKeyDown(KeyCode.E))
         {
-            Destroy (panel);
+            Destroy(panel);
             panelActivo = false;
             StartCoroutine(ReproducirVideoYCambiarEscena());
         }
@@ -83,5 +83,3 @@ public class PanelConVideo : MonoBehaviour
         }
     }
 }
-
-
