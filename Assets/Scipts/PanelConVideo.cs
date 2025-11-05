@@ -8,9 +8,9 @@ public class PanelConVideo : MonoBehaviour
     [Header("Referencias")]
     public GameObject panel;
     public VideoPlayer videoPlayer;
-    public int indiceSiguienteEscena; // Usamos índice en lugar de nombre
+    public int indiceSiguienteEscena;
     public ContadorGemas contadorGemas;
-
+    public GameObject panelSinGemas;
     private bool jugadorDentro = false;
     private bool panelActivo = false;
 
@@ -21,22 +21,37 @@ public class PanelConVideo : MonoBehaviour
 
         if (videoPlayer != null)
             videoPlayer.gameObject.SetActive(false);
+
+        if (panelSinGemas != null)
+            panelSinGemas.SetActive(false);  // 🔹 Aseguramos que no esté visible al iniciar
     }
 
     void Update()
     {
+        // Mostrar panel si el jugador está dentro y tiene 3 o 6 gemas
         if (jugadorDentro && !panelActivo && (contadorGemas.puntos == 3 || contadorGemas.puntos == 6))
         {
             panel.SetActive(true);
             panelActivo = true;
+            panelSinGemas.SetActive(false);
         }
 
-        if (contadorGemas.puntos == 1 || contadorGemas.puntos == 2 || contadorGemas.puntos == 4 || contadorGemas.puntos == 5)
+        // Mostrar panel de "sin gemas" solo si está dentro y no tiene las gemas necesarias
+        if (jugadorDentro && (contadorGemas.puntos != 3 && contadorGemas.puntos != 6))
         {
             if (panel != null)
                 panel.SetActive(false);
+
+            if (panelSinGemas != null)
+                panelSinGemas.SetActive(true);
+        }
+        else if (!jugadorDentro)  // Si sale del trigger, ocultamos panelSinGemas
+        {
+            if (panelSinGemas != null)
+                panelSinGemas.SetActive(false);
         }
 
+        // Accionar con tecla E si el panel válido está activo
         if (panelActivo && Input.GetKeyDown(KeyCode.E))
         {
             Destroy(panel);
@@ -70,7 +85,7 @@ public class PanelConVideo : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-            jugadorDentro = true;
+            jugadorDentro = true; // 🔹 Activamos que está dentro
     }
 
     private void OnTriggerExit(Collider other)
@@ -80,6 +95,9 @@ public class PanelConVideo : MonoBehaviour
             jugadorDentro = false;
             if (panel != null)
                 panel.SetActive(false);
+
+            if (panelSinGemas != null)
+                panelSinGemas.SetActive(false);
         }
     }
 }

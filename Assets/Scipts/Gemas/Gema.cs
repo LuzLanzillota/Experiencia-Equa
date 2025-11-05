@@ -62,6 +62,6 @@ public class Gema : MonoBehaviour
     {
         TengoGema.SetActive(true);
         yield return new WaitForSeconds(3f);
-        TengoGema.SetActive(false);
+        Destroy(TengoGema);
     }
 }
