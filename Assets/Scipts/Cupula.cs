@@ -9,6 +9,7 @@ public class Cupula : MonoBehaviour
     public GameObject panelInicio;
     public GameObject panelInteraccion; // Empty con collider y el script PanelTrigger
     private bool jugadorDentro = false;
+    public AudioSource Narracion;
     private GameObject currentPlayer;
     public static bool panelInicioTerminado = false;
 
@@ -50,6 +51,7 @@ public class Cupula : MonoBehaviour
 
         // 🔹 Muestra el panel de inicio
         panelInicio.SetActive(true);
+        Narracion.Play();
         Debug.Log("Panel de inicio activado.");
     }
 

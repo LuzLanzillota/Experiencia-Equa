@@ -1,25 +1,39 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Estesidestruye : MonoBehaviour
 {
     public GameObject panel;
-    public float tiempoVisible = 3f;
+    public AudioSource audioPanel;   // 👉 arrastrá el AudioSource del panel o el que quieras reproducir
+    private bool audioTermino = false;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             panel.SetActive(true);
-            StartCoroutine(DestruirDespuesDeTiempo());
+            audioPanel.Play();
+            StartCoroutine(EsperarAudio());
         }
     }
 
-    private IEnumerator DestruirDespuesDeTiempo()
+    private IEnumerator EsperarAudio()
     {
-        yield return new WaitForSeconds(tiempoVisible);
-        Destroy(panel);
+        // ✅ Esperar a que termine el audio
+        yield return new WaitWhile(() => audioPanel.isPlaying);
+
+        audioTermino = true;
+    }
+
+    private void Update()
+    {
+        // ✅ Si el audio terminó y se presionó E → destruir panel
+        if (audioTermino && panel.activeSelf && Input.GetKeyDown(KeyCode.E))
+        {
+            Destroy(panel);
+        }
     }
 }
+
 
 

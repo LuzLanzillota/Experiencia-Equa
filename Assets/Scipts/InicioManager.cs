@@ -1,36 +1,49 @@
-using UnityEngine;
+ï»¿using UnityEngine;
+using UnityEngine.UI; // Necesario para usar Button
 
 public class InicioManager : MonoBehaviour
 {
-    public GameObject panelInicio;     // Asigná el panel desde el inspector
-    public MonoBehaviour scriptMovimiento; // Asigná acá el script que controla el movimiento del jugador
+    public GameObject panelInicio;
+    public AudioSource AudioInicio;
+    public MonoBehaviour scriptMovimiento;
+    public Button botonCerrar; // ðŸ‘‰ arrastrÃ¡ el botÃ³n desde el Inspector
 
     private void Start()
     {
-        // Mostrar panel al iniciar
         panelInicio.SetActive(true);
+        AudioInicio.Play();
 
-        // Desactivar movimiento del jugador
+        // ðŸ”’ Desactivar movimiento
         if (scriptMovimiento != null)
             scriptMovimiento.enabled = false;
+
+        // ðŸ”’ Desactivar botÃ³n hasta que el audio termine
+        botonCerrar.interactable = false;
+
+        // âœ… Llamar funciÃ³n cuando termine el audio
+        Invoke(nameof(ActivarBotonCerrar), AudioInicio.clip.length);
 
         // Mostrar cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
-    // Esta función la vas a asignar al botón "X" del panel
+    private void ActivarBotonCerrar()
+    {
+        botonCerrar.interactable = true;
+    }
+
     public void CerrarPanel()
     {
-        // Ocultar panel
+        if (!botonCerrar.interactable) return; // Seguridad extra
+
         panelInicio.SetActive(false);
 
-        // Reactivar movimiento del jugador
         if (scriptMovimiento != null)
             scriptMovimiento.enabled = true;
 
-        // Ocultar cursor para volver al control del jugador
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 }
+

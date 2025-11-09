@@ -6,6 +6,7 @@ public class Gema : MonoBehaviour
     public GameObject objPuntos;
     public GameObject TengoGema;
     public AudioSource sonidoAgarrar;
+    //public GameObject PanelGema;
     public Animator animGema; // 👈 Asigná el Animator de la gema
     public string nombreAnimGema = "GemaActiva"; // 👈 nombre del clip que se reproduce
     private Collider colGema;
@@ -17,6 +18,7 @@ public class Gema : MonoBehaviour
 
         if (TengoGema != null)
             TengoGema.SetActive(false);
+            //PanelGema.SetActive(false);
 
         // 🔹 Esperar a que empiece o termine la animación de la gema
         if (animGema != null)
@@ -61,7 +63,11 @@ public class Gema : MonoBehaviour
     private IEnumerator MostrarMensajeTemporal()
     {
         TengoGema.SetActive(true);
+        //PanelGema.SetActive(true);
         yield return new WaitForSeconds(3f);
         Destroy(TengoGema);
     }
 }
+
+
+
