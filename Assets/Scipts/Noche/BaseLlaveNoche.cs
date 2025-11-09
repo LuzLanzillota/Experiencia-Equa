@@ -1,24 +1,37 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class BaseLlaveNoche : MonoBehaviour
 {
-    public GameObject llaveEnBase; // La llave que se activa y gira
-    public Animator animLlaveBase; // Animator de esa llave
-    public AudioSource SonidoLlave;
-    public GameObject panelInteraccionLlave;
-
-    public ParticleSystem niebla; // 🌫️ Nuevo: sistema de partículas de niebla
+    // 🎬 Animaciones y efectos
+    public Animator Portal;
+    public Animator LuzPortalAnimator; // Nuevo Animator para LuzPortal-2
+    public Animator animLlaveBase; // Animator de la llave en la base
     public Animator Gema;
+
+    // 💨 Partículas
+    public ParticleSystem niebla; // 🌫️ Niebla de la versión nocturna
+    public ParticleSystem particulasPortal; // ✨ NUEVO: partículas del portal
+
+    // 🎮 Objetos y referencias
+    public GameObject llaveEnBase;
     public GameObject muroBloqueador;
     public GameObject muroNota;
     public GameObject NotaGema;
+    public GameObject panelInteraccionLlave;
 
+    // 🔊 Sonidos
+    public AudioSource SonidoPortal;
+    public AudioSource SonidoLlave;
+
+    // ⚙️ Estados internos
     private bool jugadorEnZona = false;
     private bool condicionesCompletas = false;
 
     void Start()
     {
+        // Asegurar que los objetos empiecen en el estado correcto
         if (muroBloqueador != null)
         {
             NotaGema.SetActive(false);
@@ -26,6 +39,13 @@ public class BaseLlaveNoche : MonoBehaviour
             muroBloqueador.SetActive(true);
             panelInteraccionLlave.SetActive(false);
         }
+
+        if (particulasPortal != null)
+            particulasPortal.Stop();
+
+        // Asegurar que el portal no esté activo al comienzo
+        if (Portal != null)
+            Portal.gameObject.SetActive(false);
     }
 
     void Update()
@@ -43,26 +63,56 @@ public class BaseLlaveNoche : MonoBehaviour
                     // Mostrar la llave en la base
                     llaveEnBase.SetActive(true);
 
-                    // Reproducir la animación de giro y sonido
+                    // Animación y sonido de la llave
                     animLlaveBase.Play("GiroLlave");
                     SonidoLlave.Play();
                     Destroy(panelInteraccionLlave);
 
-                    // ⏳ Iniciar la secuencia de desactivar la niebla
+                    // Iniciar las secuencias visuales
+                    StartCoroutine(AbrirPortalConDelay());
                     StartCoroutine(DetenerNieblaConDelay(3f));
+                    StartCoroutine(DesactivarMuroConDelay(5f));
 
                     // Quitar la llave del inventario
                     manager.tieneLlave = false;
                     condicionesCompletas = true;
-
-                    // 🔓 Desactivar muro después de un pequeño delay
-                    StartCoroutine(DesactivarMuroConDelay(5f));
                 }
                 else
                 {
                     Debug.Log("Necesitás la llave para activar la base.");
                 }
             }
+        }
+    }
+
+    IEnumerator AbrirPortalConDelay()
+    {
+        yield return new WaitForSeconds(3f);
+
+        // Activar portal y luz
+        if (Portal != null)
+        {
+            Portal.gameObject.SetActive(true);
+            Portal.SetTrigger("Abrir");
+        }
+
+        if (LuzPortalAnimator != null)
+        {
+            LuzPortalAnimator.SetTrigger("Abrir");
+            Debug.Log("✨ Animación de LuzPortal activada");
+        }
+
+        // ✨ Activar partículas del portal
+        if (particulasPortal != null)
+        {
+            particulasPortal.Play();
+            Debug.Log("💫 Partículas del portal activadas");
+        }
+
+        // Reproducir sonido del portal
+        if (SonidoPortal != null)
+        {
+            SonidoPortal.Play();
         }
     }
 
@@ -94,17 +144,12 @@ public class BaseLlaveNoche : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
             jugadorEnZona = true;
-        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
             jugadorEnZona = false;
-        }
     }
 }
-
