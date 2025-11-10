@@ -6,18 +6,29 @@ public class Gema : MonoBehaviour
     public GameObject objPuntos;
     public GameObject TengoGema;
     public AudioSource sonidoAgarrar;
-    public Animator animGema; // Animator de la gema
-    public string nombreAnimGema = "GemaActiva";
-    public Animator animVideoGema; // 👈 Animator del objeto que tiene la animación "VideoGema"
+    public GameObject PanelGema;
+    public AudioSource panelAudio; // 👈 Ahora visible en el Inspector
+    public Animator animGema; // 👈 Asigná el Animator de la gema
+    public string nombreAnimGema = "GemaActiva"; // 👈 nombre del clip que se reproduce
+
     private Collider colGema;
 
     private void Start()
     {
         colGema = GetComponent<Collider>();
-        colGema.enabled = false;
+        colGema.enabled = false; // 🔹 no se puede agarrar aún
 
         if (TengoGema != null)
             TengoGema.SetActive(false);
+
+        if (PanelGema != null)
+        {
+            PanelGema.SetActive(false);
+
+            // Si no se asignó manualmente, lo busca automáticamente
+            if (panelAudio == null)
+                panelAudio = PanelGema.GetComponent<AudioSource>();
+        }
 
         if (animGema != null)
             StartCoroutine(ActivarColliderDespuesAnim());
@@ -53,16 +64,6 @@ public class Gema : MonoBehaviour
             if (TengoGema != null)
                 StartCoroutine(MostrarMensajeTemporal());
 
-            // 🔹 Activar la animación "VideoGema"
-            if (animVideoGema != null)
-            {
-                animVideoGema.SetTrigger("VideoGema");
-            }
-            else
-            {
-                Debug.LogWarning("⚠️ Falta asignar el Animator que contiene la animación 'VideoGema'.");
-            }
-
             Destroy(gameObject, sonidoAgarrar != null ? sonidoAgarrar.clip.length : 0.1f);
         }
     }
@@ -70,6 +71,12 @@ public class Gema : MonoBehaviour
     private IEnumerator MostrarMensajeTemporal()
     {
         TengoGema.SetActive(true);
+        PanelGema.SetActive(true);
+
+        // 🎵 Reproducir audio del panel si lo tiene
+        if (panelAudio != null)
+            panelAudio.Play();
+
         yield return new WaitForSeconds(3f);
         Destroy(TengoGema);
     }
