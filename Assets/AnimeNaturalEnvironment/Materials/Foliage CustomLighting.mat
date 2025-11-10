@@ -164,7 +164,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 0.48684746, g: 0.754717, b: 0.06051977, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color0: {r: 0.6708558, g: 0.8962264, b: 0, a: 0}
+    - _Color0: {r: 0.8980392, g: 0, b: 0, a: 0}
     - _Color1: {r: 0.30824396, g: 0.5568628, b: 0, a: 1}
     - _EmissionColor: {r: 0.06780411, g: 0.21698111, b: 0, a: 1}
     - _EmissionMapChannelMask: {r: 1, g: 1, b: 1, a: 0}

@@ -6,21 +6,19 @@ public class Gema : MonoBehaviour
     public GameObject objPuntos;
     public GameObject TengoGema;
     public AudioSource sonidoAgarrar;
-    //public GameObject PanelGema;
-    public Animator animGema; // 👈 Asigná el Animator de la gema
-    public string nombreAnimGema = "GemaActiva"; // 👈 nombre del clip que se reproduce
+    public Animator animGema; // Animator de la gema
+    public string nombreAnimGema = "GemaActiva";
+    public Animator animVideoGema; // 👈 Animator del objeto que tiene la animación "VideoGema"
     private Collider colGema;
 
     private void Start()
     {
         colGema = GetComponent<Collider>();
-        colGema.enabled = false; // 🔹 no se puede agarrar aún
+        colGema.enabled = false;
 
         if (TengoGema != null)
             TengoGema.SetActive(false);
-            //PanelGema.SetActive(false);
 
-        // 🔹 Esperar a que empiece o termine la animación de la gema
         if (animGema != null)
             StartCoroutine(ActivarColliderDespuesAnim());
         else
@@ -29,7 +27,6 @@ public class Gema : MonoBehaviour
 
     private IEnumerator ActivarColliderDespuesAnim()
     {
-        // ⏳ Espera a que la animación de la gema termine (o podrías poner 0f si querés que sea al empezar)
         yield return new WaitForSeconds(GetDuracionAnim(animGema, nombreAnimGema));
         colGema.enabled = true;
     }
@@ -56,6 +53,16 @@ public class Gema : MonoBehaviour
             if (TengoGema != null)
                 StartCoroutine(MostrarMensajeTemporal());
 
+            // 🔹 Activar la animación "VideoGema"
+            if (animVideoGema != null)
+            {
+                animVideoGema.SetTrigger("VideoGema");
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ Falta asignar el Animator que contiene la animación 'VideoGema'.");
+            }
+
             Destroy(gameObject, sonidoAgarrar != null ? sonidoAgarrar.clip.length : 0.1f);
         }
     }
@@ -63,11 +70,7 @@ public class Gema : MonoBehaviour
     private IEnumerator MostrarMensajeTemporal()
     {
         TengoGema.SetActive(true);
-        //PanelGema.SetActive(true);
         yield return new WaitForSeconds(3f);
         Destroy(TengoGema);
     }
 }
-
-
-
