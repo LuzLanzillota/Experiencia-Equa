@@ -42,6 +42,7 @@ public class BaseCaldero : MonoBehaviour
     public GameObject paredHongos;
     public GameObject mensajeParedHongo;
     public Animator Gema;
+    public GameObject ColiderGema;
 
     private bool jugadorEnZona = false;
 
@@ -49,6 +50,7 @@ public class BaseCaldero : MonoBehaviour
     {
         paredHongos.SetActive(true);
         mensajeParedHongo.SetActive(true);
+        ColiderGema.SetActive(false);
     }
 
     void Update()
@@ -160,6 +162,7 @@ public class BaseCaldero : MonoBehaviour
         // 💎 Activar la animación de la gema al final
         if (Gema != null)
         {
+            ColiderGema.SetActive(true);
             Gema.Play("Esta");
         }
 

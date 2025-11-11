@@ -20,10 +20,13 @@ public class BaseLlaveNoche : MonoBehaviour
     public GameObject muroNota;
     public GameObject NotaGema;
     public GameObject panelInteraccionLlave;
+    public GameObject ColiderGema;
 
     // 🔊 Sonidos
     public AudioSource SonidoPortal;
     public AudioSource SonidoLlave;
+    public AudioSource SonidoViento;
+    
 
     // ⚙️ Estados internos
     private bool jugadorEnZona = false;
@@ -38,6 +41,7 @@ public class BaseLlaveNoche : MonoBehaviour
             muroNota.SetActive(true);
             muroBloqueador.SetActive(true);
             panelInteraccionLlave.SetActive(false);
+            ColiderGema.SetActive(false);
         }
 
         if (particulasPortal != null)
@@ -120,12 +124,21 @@ public class BaseLlaveNoche : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
+        // ✅ Reproducir el sonido del viento cuando inicia la disipación
+        if (SonidoViento != null)
+        {
+            SonidoViento.Play();
+            Debug.Log("🌬️ Sonido de viento reproducido.");
+        }
+
+        // ✅ Detener niebla
         if (niebla != null)
         {
             niebla.Stop();
             Debug.Log("🌫️ Niebla detenida.");
         }
     }
+
 
     IEnumerator DesactivarMuroConDelay(float delay)
     {
@@ -136,6 +149,7 @@ public class BaseLlaveNoche : MonoBehaviour
             muroBloqueador.SetActive(false);
             muroNota.SetActive(false);
             NotaGema.SetActive(true);
+            ColiderGema.SetActive(true);
             Gema.Play("Esta");
             Debug.Log("✅ Muro desactivado, podés avanzar.");
         }

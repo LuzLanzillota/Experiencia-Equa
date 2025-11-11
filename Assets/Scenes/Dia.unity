@@ -10716,8 +10716,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.01734923, y: 0.022131376, z: 0.013011321}
-  m_Center: {x: 0.0008044368, y: -0.000000023841856, z: -0.00006538391}
+  m_Size: {x: 0.036535945, y: 0.022131376, z: 0.034072567}
+  m_Center: {x: 0.0018080162, y: -0.000000023841856, z: -0.00207977}
 --- !u!114 &176643035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35568,8 +35568,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panelInicio: {fileID: 1077410537}
-  AudioInicio: {fileID: 0}
-  scriptMovimiento: {fileID: 0}
+  AudioInicio: {fileID: 1296634275}
+  scriptMovimiento: {fileID: 2089045221}
   botonCerrar: {fileID: 677691867}
 --- !u!114 &677691867
 MonoBehaviour:
@@ -39457,7 +39457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &753499996
 RectTransform:
   m_ObjectHideFlags: 0
@@ -42800,7 +42800,6 @@ GameObject:
   m_Component:
   - component: {fileID: 810093330}
   - component: {fileID: 810093332}
-  - component: {fileID: 810093331}
   - component: {fileID: 810093333}
   m_Layer: 0
   m_Name: Colider-gemaAmarilla-Nota
@@ -42824,20 +42823,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 450734147}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &810093331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 810093329}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 266e2d425543ae24ba1706f2ea07080c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 1544130277}
-  audioPanel: {fileID: 263851828}
 --- !u!65 &810093332
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42857,8 +42842,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.5898743, y: 2.3223763, z: 1.5461731}
-  m_Center: {x: 2.1693268, y: 2.5961056, z: 0.8186798}
+  m_Size: {x: 1.9396973, y: 2.3223763, z: 2.1006012}
+  m_Center: {x: 2.0464172, y: 2.5961056, z: 0.6122513}
 --- !u!114 &810093333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50133,7 +50118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &967740472
 RectTransform:
   m_ObjectHideFlags: 0
@@ -51718,7 +51703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &994981075
 RectTransform:
   m_ObjectHideFlags: 0
@@ -64649,6 +64634,7 @@ MonoBehaviour:
   paredHongos: {fileID: 432602789}
   mensajeParedHongo: {fileID: 892762837}
   Gema: {fileID: 176643039}
+  ColiderGema: {fileID: 810093329}
 --- !u!65 &1218985327
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -81727,7 +81713,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -530.4
+      value: -542.8
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -81737,7 +81723,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 384.7
+      value: 455.6
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -107025,8 +107011,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0/6
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 98e5a0d4d5a456045a5e93ddf8b66610, type: 2}
+  m_sharedMaterial: {fileID: 5209464519845994695, guid: 98e5a0d4d5a456045a5e93ddf8b66610,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -107089,7 +107076,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1993845978

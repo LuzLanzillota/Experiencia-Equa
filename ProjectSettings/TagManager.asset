@@ -8,6 +8,12 @@ TagManager:
   - Flor
   - Llave
   - Pickable
+  - BotonNaranja
+  - BotonVerde
+  - BotonCeleste
+  - BotonRosa
+  - BotonVioleta
+  - BotonAzul
   layers:
   - Default
   - TransparentFX
