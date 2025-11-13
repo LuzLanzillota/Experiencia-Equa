@@ -58,11 +58,11 @@ Material:
     - _ReflactionOpacity: 0.43
     - _foamscale: 220
     - _reflectionstrength: 0.4
-    - _ripplesamoung: 2.9
+    - _ripplesamoung: 5
     - _speed: 1
     - _varonspeed: 3
     m_Colors:
-    - _Color: {r: 0.17647055, g: 0.40116826, b: 0.5294118, a: 0}
-    - _Color_1: {r: 0.5518868, g: 0.8036358, b: 1, a: 0}
+    - _Color: {r: 0.039215688, g: 0.2392157, b: 0.4431373, a: 0}
+    - _Color_1: {r: 0.6792453, g: 0.6770841, b: 0.22107512, a: 1}
     - _reapedispeed: {r: 0, g: 0.4, b: 0, a: 0}
   m_BuildTextureStacks: []

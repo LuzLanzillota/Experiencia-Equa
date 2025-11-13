@@ -4,7 +4,7 @@ using System.Collections;
 public class BotonController : MonoBehaviour
 {
     [Header("Configuración general")]
-    public string nombreBotonCorrecto = "BotonNaranja"; // Tag del botón correcto
+    private string nombreBotonCorrecto = "BotonNaranja"; // Tag del botón correcto
 
     [Header("Referencias externas")]
     public ParticleSystem luciernagas;
@@ -14,19 +14,24 @@ public class BotonController : MonoBehaviour
     public Animator Gema;
     public GameObject ColiderGema;
 
+    [Header("Tiempos")]
+    public float delayAparicionGema = 2f; // ⏱ tiempo que tarda en aparecer la gema después de las luciérnagas
+
     private Animator animator;
     private bool jugadorCerca = false;
-    private bool apagandoLuciernagas = false;
+    private bool luciernagasActivadas = false;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
 
-        if (luciernagas != null && !luciernagas.isPlaying)
-            luciernagas.Play();
+        // 🔇 Luciérnagas y sonido comienzan desactivados
+        if (luciernagas != null && luciernagas.isPlaying)
+            luciernagas.Stop();
 
-        if (sonidoLuciernagas != null && !sonidoLuciernagas.isPlaying)
-            sonidoLuciernagas.Play();
+        if (sonidoLuciernagas != null && sonidoLuciernagas.isPlaying)
+            sonidoLuciernagas.Stop();
+
         ColiderGema.SetActive(false);
     }
 
@@ -37,17 +42,26 @@ public class BotonController : MonoBehaviour
             if (animator != null)
                 animator.Play("BotonMov");
 
-            // ✅ Compara por TAG
+            // ✅ Verifica si el botón tiene el tag correcto
             if (CompareTag(nombreBotonCorrecto))
             {
-                if (!apagandoLuciernagas && luciernagas != null)
-                    StartCoroutine(ApagarLuciernagasGradualmente(8f));
+                if (!luciernagasActivadas)
+                {
+                    // 🔥 Activa luciérnagas y sonido
+                    if (luciernagas != null && !luciernagas.isPlaying)
+                        luciernagas.Play();
 
-                if (sonidoLuciernagas != null && sonidoLuciernagas.isPlaying)
-                    sonidoLuciernagas.Stop();
+                    if (sonidoLuciernagas != null && !sonidoLuciernagas.isPlaying)
+                        sonidoLuciernagas.Play();
 
-                if (sonidoCorrecto != null)
-                    sonidoCorrecto.Play();
+                    if (sonidoCorrecto != null)
+                        sonidoCorrecto.Play();
+
+                    luciernagasActivadas = true;
+
+                    // ⏱ Espera unos segundos antes de mostrar la gema
+                    StartCoroutine(AparecerGemaConDelay());
+                }
             }
             else
             {
@@ -57,25 +71,15 @@ public class BotonController : MonoBehaviour
         }
     }
 
-    private IEnumerator ApagarLuciernagasGradualmente(float duracion)
+    private IEnumerator AparecerGemaConDelay()
     {
-        apagandoLuciernagas = true;
-        var emission = luciernagas.emission;
-        float inicioRate = emission.rateOverTime.constant;
-        float tiempo = 0f;
+        yield return new WaitForSeconds(delayAparicionGema);
+
+        // 🔓 Activa colider y animación de la gema
         ColiderGema.SetActive(true);
-        Gema.Play("Esta");
 
-        while (tiempo < duracion)
-        {
-            tiempo += Time.deltaTime;
-            float t = tiempo / duracion;
-            emission.rateOverTime = Mathf.Lerp(inicioRate, 0, t);
-            yield return null;
-        }
-
-        luciernagas.Stop();
-        apagandoLuciernagas = false;
+        if (Gema != null)
+            Gema.Play("Esta");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -90,10 +94,3 @@ public class BotonController : MonoBehaviour
             jugadorCerca = false;
     }
 }
-
-
-
-
-
-
-

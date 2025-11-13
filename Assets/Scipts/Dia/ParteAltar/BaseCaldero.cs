@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class BaseCaldero : MonoBehaviour
 {
+    [Header("Animaciones principales")]
     public Animator animSemilla;
     public Animator animHongo;
     public Animator animAgua;
-    public Animator animAgua2; // 💧 Nueva animación de agua 1
-    public Animator animAgua3; // 💧 Nueva animación de agua 2
+    public Animator animAgua2;
+    public Animator animAgua3;
+
+    [Header("Hongos grandes")]
     public Animator animHongosGrandes;
     public Animator animHongosGrandes2;
     public Animator animHongosGrandes3;
@@ -37,8 +40,14 @@ public class BaseCaldero : MonoBehaviour
     public Animator animHongosGrandes26;
     public Animator animHongosGrandes27;
     public Animator animHongosGrandes28;
+
+    [Header("Audio")]
     public AudioSource HongosCrecen;
     public AudioSource Agua;
+    public AudioSource SonidoError; // ❌ Nuevo sonido de error
+    public AudioSource Splash;      // 💦 Nuevo sonido de splash
+
+    [Header("Referencias externas")]
     public GameObject paredHongos;
     public GameObject mensajeParedHongo;
     public Animator Gema;
@@ -73,6 +82,10 @@ public class BaseCaldero : MonoBehaviour
                 else
                 {
                     Debug.Log("⚠ Falta algún ingrediente");
+
+                    // 🔊 Reproduce sonido de error cuando falta uno o ambos objetos
+                    if (SonidoError != null)
+                        SonidoError.Play();
                 }
             }
         }
@@ -80,6 +93,7 @@ public class BaseCaldero : MonoBehaviour
 
     IEnumerator CrearPocion()
     {
+        // 🌱 Animación de la semilla
         if (animSemilla != null)
         {
             animSemilla.gameObject.SetActive(true);
@@ -87,11 +101,17 @@ public class BaseCaldero : MonoBehaviour
             animSemilla.SetTrigger("Caer");
         }
 
+        // 🍄 Animación del hongo
         if (animHongo != null)
         {
             animHongo.gameObject.SetActive(true);
             yield return new WaitForEndOfFrame();
             animHongo.SetTrigger("Caer");
+
+            // 💦 Sonido de splash cuando ambos caen
+            if (Splash != null)
+                Splash.Play();
+
             Destroy(paredHongos);
             Destroy(mensajeParedHongo);
         }
@@ -104,7 +124,8 @@ public class BaseCaldero : MonoBehaviour
             animAgua.gameObject.SetActive(true);
             yield return new WaitForEndOfFrame();
             animAgua.SetTrigger("Subir");
-            Agua.Play();
+            if (Agua != null)
+                Agua.Play();
         }
 
         // 💧 Animación del agua 2
@@ -156,7 +177,9 @@ public class BaseCaldero : MonoBehaviour
             animHongosGrandes26.Play("Crece");
             animHongosGrandes27.Play("Crece");
             animHongosGrandes28.Play("Crece");
-            HongosCrecen.Play();
+
+            if (HongosCrecen != null)
+                HongosCrecen.Play();
         }
 
         // 💎 Activar la animación de la gema al final
