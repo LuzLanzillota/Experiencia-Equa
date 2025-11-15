@@ -10679,8 +10679,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.036535945, y: 0.022131376, z: 0.034072567}
-  m_Center: {x: 0.0018080162, y: -0.000000023841856, z: -0.00207977}
+  m_Size: {x: 0.05954818, y: 0.022131376, z: 0.06636808}
+  m_Center: {x: 0.0013883233, y: -0.000000023841856, z: -0.0056400965}
 --- !u!114 &176643035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20548,7 +20548,6 @@ GameObject:
   m_Component:
   - component: {fileID: 363767017}
   - component: {fileID: 363767019}
-  - component: {fileID: 363767018}
   - component: {fileID: 363767020}
   m_Layer: 0
   m_Name: Colider-gemaRosa-Nota
@@ -20572,21 +20571,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 833654032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &363767018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363767016}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 266e2d425543ae24ba1706f2ea07080c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panel: {fileID: 621555868}
-  panelObj: {fileID: 0}
-  audioPanel: {fileID: 263851828}
 --- !u!65 &363767019
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26292,7 +26276,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 49cea1270e74e3640ad6a2f9c432d9f2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f350a702de0d7904283541722a67c5b4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -34019,7 +34003,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 01ff58556ee6cc94e9e4849f14f8154c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 445101650438d474e9b83ed2f212c353, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -45863,7 +45847,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d0eb5b53384113b44bfbcc75afdfec58, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a18cb6036d8da9d44af1e6645a1f8b03, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -49725,7 +49709,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dc3766d91f2d46647b78a85141563968, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6d7e27f3ca4623545ad46b80a09a6586, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -68109,7 +68093,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 153192b81d8305a40a04a8631edcd6db, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c5eaf382f0b93cc409385ec18cad1dfd, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -72973,7 +72957,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6651e7ea79282b94d817809842581aed, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 47164a9d9f7fada42b4b8f253a6956b9, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -81485,7 +81469,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -517.3
+      value: -366.5
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -81495,7 +81479,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 380.8
+      value: 475
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}

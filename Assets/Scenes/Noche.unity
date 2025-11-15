@@ -16202,6 +16202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 877671494}
+  panelObj: {fileID: 0}
   audioPanel: {fileID: 583481821}
 --- !u!65 &618459627
 BoxCollider:
@@ -19069,6 +19070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
+  panelObj: {fileID: 0}
   audioPanel: {fileID: 0}
 --- !u!65 &744962793
 BoxCollider:
@@ -25176,11 +25178,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 198779bd1795b3f45aa830689bde90af,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 862670454}
+      addedObject: {fileID: 862670458}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 198779bd1795b3f45aa830689bde90af,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 862670458}
+      addedObject: {fileID: 862670454}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 198779bd1795b3f45aa830689bde90af,
         type: 3}
       insertIndex: -1
@@ -47987,8 +47989,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.04242598, y: 0.02213137, z: 0.038476367}
-  m_Center: {x: 0.002239635, y: 0.000000018989999, z: -0.0011269159}
+  m_Size: {x: 0.070005, y: 0.02213137, z: 0.07758807}
+  m_Center: {x: -0.006530966, y: 0.00000006094034, z: 0.0015455189}
 --- !u!114 &1787721109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55160,6 +55162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
+  panelObj: {fileID: 0}
   audioPanel: {fileID: 0}
 --- !u!65 &2094881916
 BoxCollider:
