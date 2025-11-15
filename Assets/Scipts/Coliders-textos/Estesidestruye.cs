@@ -3,37 +3,54 @@ using UnityEngine;
 
 public class Estesidestruye : MonoBehaviour
 {
-    public GameObject panel;
-    public AudioSource audioPanel;   // 👉 arrastrá el AudioSource del panel o el que quieras reproducir
+    public Animator panel;
+    public GameObject panelObj;
+    public AudioSource audioPanel;
+
     private bool audioTermino = false;
+
+    private void Start()
+    {
+        if (panelObj != null)
+            panelObj.SetActive(false);
+
+        if (audioPanel == null)
+            Debug.LogError("❌ No asignaste el AudioSource en 'audioPanel'.");
+
+        if (panel == null)
+            Debug.LogError("❌ No asignaste el Animator en 'panel'.");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            panel.SetActive(true);
-            audioPanel.Play();
+            panelObj.SetActive(true);
+
+            panel.Play("Mensaje1Flores");
+
+            if (audioPanel != null)
+                audioPanel.Play();
+            else
+                Debug.LogError("❌ No hay audioPanel asignado, no puedo reproducir sonido.");
+
             StartCoroutine(EsperarAudio());
         }
     }
 
     private IEnumerator EsperarAudio()
     {
-        // ✅ Esperar a que termine el audio
-        yield return new WaitWhile(() => audioPanel.isPlaying);
+        if (audioPanel == null) yield break;
 
+        yield return new WaitWhile(() => audioPanel.isPlaying);
         audioTermino = true;
     }
 
     private void Update()
     {
-        // ✅ Si el audio terminó y se presionó E → destruir panel
-        if (audioTermino && panel.activeSelf && Input.GetKeyDown(KeyCode.E))
+        if (audioTermino && Input.GetKeyDown(KeyCode.E))
         {
-            Destroy(panel);
+            Destroy(panelObj);
         }
     }
 }
-
-
-
