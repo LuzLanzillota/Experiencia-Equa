@@ -62,7 +62,7 @@ Material:
     - _NormalSpeed: {r: 0.02, g: -0.01, b: 0, a: 0}
     - _NormalStrengh2: {r: 0, g: 0, b: 0, a: 0}
     - _NormalStrength: {r: 15, g: 0, b: 0, a: 0}
-    - _RippleColor: {r: 0.13915095, g: 0.15540312, b: 0.5, a: 1}
+    - _RippleColor: {r: 0, g: 0, b: 0.5943396, a: 1}
     - _RippleDissolve: {r: 5, g: 5, b: 0, a: 0}
     - _RippleScale: {r: 15.7, g: 15.7, b: 0, a: 0}
     - _RippleSpeed: {r: 1, g: 1, b: 0, a: 0}
