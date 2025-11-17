@@ -8,6 +8,7 @@ public class Estesidestruye : MonoBehaviour
     public AudioSource audioPanel;
 
     private bool audioTermino = false;
+    private bool yaActivado = false; // ⭐ evita que vuelva a reproducirse
 
     private void Start()
     {
@@ -23,16 +24,15 @@ public class Estesidestruye : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !yaActivado) // ⭐ Solo la primera vez
         {
-            panelObj.SetActive(true);
+            yaActivado = true;
 
+            panelObj.SetActive(true);
             panel.Play("Mensaje1Flores");
 
             if (audioPanel != null)
                 audioPanel.Play();
-            else
-                Debug.LogError("❌ No hay audioPanel asignado, no puedo reproducir sonido.");
 
             StartCoroutine(EsperarAudio());
         }
@@ -54,3 +54,4 @@ public class Estesidestruye : MonoBehaviour
         }
     }
 }
+
