@@ -48880,6 +48880,7 @@ MonoBehaviour:
   indiceSiguienteEscena: 2
   contadorGemas: {fileID: 44214004}
   panelSinGemas: {fileID: 1420285159}
+  indiceEscenaGemasCompletas: 3
 --- !u!1001 &918732168
 PrefabInstance:
   m_ObjectHideFlags: 0

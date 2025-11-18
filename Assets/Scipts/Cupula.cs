@@ -7,15 +7,17 @@ public class Cupula : MonoBehaviour
     [Header("Referencias principales")]
     public Animator cupula;
     public GameObject panelInicio;
-    public GameObject panelInteraccion; // Empty con collider y el script PanelTrigger
+    public GameObject panelInteraccion;
     private bool jugadorDentro = false;
     public AudioSource Narracion;
     private GameObject currentPlayer;
     public static bool panelInicioTerminado = false;
 
     [Header("Configuraciones")]
-    [Tooltip("Radio para buscar llaves cerca del jugador al cerrar el panel")]
     public float radioBusquedaLlaves = 3f;
+
+    // 🔊 NUEVO -> bandera para reproducir solo una vez
+    private bool audioReproducido = false;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,28 +33,23 @@ public class Cupula : MonoBehaviour
     private IEnumerator MostrarPanelConRetraso()
     {
         cupula.Play("CupulaArriba");
-        Debug.Log("Cupula moviéndose...");
         yield return new WaitForSeconds(2f);
 
-        // 🔹 Pedimos al PanelTrigger que oculte el mensaje
         PanelTrigger panelTrigger = panelInteraccion.GetComponent<PanelTrigger>();
         if (panelTrigger != null)
-        {
             panelTrigger.OcultarPanel();
-            Debug.Log("Panel de interacción ocultado por la cúpula.");
-        }
 
-        // 🔹 Desactiva el collider del panelInteraccion (para que no se reactive)
         if (panelInteraccion.TryGetComponent(out Collider col))
-        {
             col.enabled = false;
-            Debug.Log("Collider del panel de interacción desactivado.");
-        }
 
-        // 🔹 Muestra el panel de inicio
         panelInicio.SetActive(true);
-        Narracion.Play();
-        Debug.Log("Panel de inicio activado.");
+
+        // 🔊 SOLO REPRODUCE EL AUDIO UNA VEZ
+        if (!audioReproducido)
+        {
+            Narracion.Play();
+            audioReproducido = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -71,7 +68,6 @@ public class Cupula : MonoBehaviour
         {
             Destroy(panelInicio);
             panelInicioTerminado = true;
-            Debug.Log("Panel de inicio cerrado. Llave(s) disponibles o se recogerán si están cerca.");
             TryCollectNearbyLlaves();
         }
     }
@@ -100,3 +96,4 @@ public class Cupula : MonoBehaviour
         }
     }
 }
+
