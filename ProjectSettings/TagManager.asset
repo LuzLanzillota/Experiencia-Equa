@@ -14,6 +14,7 @@ TagManager:
   - BotonRosa
   - BotonVioleta
   - BotonAzul
+  - GemaColider
   layers:
   - Default
   - TransparentFX

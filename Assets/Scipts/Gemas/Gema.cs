@@ -7,38 +7,52 @@ public class Gema : MonoBehaviour
     public GameObject TengoGema;
     public AudioSource sonidoAgarrar;
     public GameObject PanelGema;
-    public AudioSource panelAudio; // 👈 Ahora visible en el Inspector
-    public Animator animGema; // 👈 Asigná el Animator de la gema
-    public string nombreAnimGema = "GemaActiva"; // 👈 nombre del clip que se reproduce
+    public AudioSource panelAudio; 
+    public Animator animGema; 
+    public GameObject MuroAgarraGema;
+    public GameObject PanelAgarraGema;
+    public string nombreAnimGema = "Esta"; // La animación que debe terminar
 
     private Collider colGema;
+    public bool fueAgarrada = false;
 
     private void Start()
     {
         colGema = GetComponent<Collider>();
-        colGema.enabled = false; // 🔹 no se puede agarrar aún
+        colGema.enabled = false;
 
+        // Apagar objetos al inicio
         if (TengoGema != null)
+        {
+            MuroAgarraGema.SetActive(false);
+            PanelAgarraGema.SetActive(false);
             TengoGema.SetActive(false);
+        }
 
         if (PanelGema != null)
         {
             PanelGema.SetActive(false);
 
-            // Si no se asignó manualmente, lo busca automáticamente
             if (panelAudio == null)
                 panelAudio = PanelGema.GetComponent<AudioSource>();
         }
 
         if (animGema != null)
-            StartCoroutine(ActivarColliderDespuesAnim());
+            StartCoroutine(ActivarColliderYMurosDespuesAnim());
         else
             Debug.LogWarning("⚠️ Falta asignar Animator de la gema.");
     }
 
-    private IEnumerator ActivarColliderDespuesAnim()
+    private IEnumerator ActivarColliderYMurosDespuesAnim()
     {
+        // Esperar a que termine la animación "Esta"
         yield return new WaitForSeconds(GetDuracionAnim(animGema, nombreAnimGema));
+
+        // Activar muros cuando la gema ya terminó su animación
+        MuroAgarraGema.SetActive(true);
+        PanelAgarraGema.SetActive(true);
+
+        // Ahora sí se puede agarrar
         colGema.enabled = true;
     }
 
@@ -56,6 +70,8 @@ public class Gema : MonoBehaviour
     {
         if (colGema.enabled && other.CompareTag("Player"))
         {
+            fueAgarrada = true;
+
             objPuntos.GetComponent<ContadorGemas>().puntos += 1;
 
             if (sonidoAgarrar != null)
@@ -64,6 +80,7 @@ public class Gema : MonoBehaviour
             if (TengoGema != null)
                 StartCoroutine(MostrarMensajeTemporal());
 
+            // Destruye la gema después del sonido
             Destroy(gameObject, sonidoAgarrar != null ? sonidoAgarrar.clip.length : 0.1f);
         }
     }
@@ -73,11 +90,23 @@ public class Gema : MonoBehaviour
         TengoGema.SetActive(true);
         PanelGema.SetActive(true);
 
-        // 🎵 Reproducir audio del panel si lo tiene
         if (panelAudio != null)
             panelAudio.Play();
 
         yield return new WaitForSeconds(3f);
+
         Destroy(TengoGema);
     }
+
+    // ⭐ Se ejecuta SIEMPRE cuando el objeto se destruye
+    private void OnDestroy()
+    {
+        if (MuroAgarraGema != null)
+            MuroAgarraGema.SetActive(false);
+
+        if (PanelAgarraGema != null)
+            PanelAgarraGema.SetActive(false);
+    }
 }
+
+
