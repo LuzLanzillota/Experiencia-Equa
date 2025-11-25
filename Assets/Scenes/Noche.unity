@@ -10143,7 +10143,6 @@ GameObject:
   - component: {fileID: 369622430}
   - component: {fileID: 369622429}
   - component: {fileID: 369622428}
-  - component: {fileID: 369622432}
   m_Layer: 5
   m_Name: Canvas-CupulayNiebla
   m_TagString: Untagged
@@ -10240,22 +10239,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &369622432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369622427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 689bb3dc00f7e8e4cadde02a48c68685, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelInicio: {fileID: 1291498311}
-  AudioInicio: {fileID: 0}
-  scriptMovimiento: {fileID: 1335971335}
-  botonCerrar: {fileID: 501798843}
 --- !u!1001 &372761321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33941,14 +33924,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   luciernagas: {fileID: 460511535}
-  Gema: {fileID: 0}
+  Gema: {fileID: 862670453}
   sonidoError: {fileID: 1611324648}
   sonidoLuciernagas: {fileID: 1081634518}
   sonidoCorrecto: {fileID: 206930781}
   ColiderGema: {fileID: 1649337935}
-  ColiderPared: {fileID: 0}
-  ColiderParedNota: {fileID: 0}
-  ColiderInteracion: {fileID: 0}
+  ColiderPared: {fileID: 870765260}
+  ColiderParedNota: {fileID: 1612613918}
+  ColiderInteracion: {fileID: 184405458}
   delayAparicionGema: 2
 --- !u!65 &1100041446
 BoxCollider:
@@ -38951,7 +38934,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 171.4
+      value: 61.4
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -38961,7 +38944,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 602.6
+      value: 351.5
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -40525,7 +40508,7 @@ GameObject:
   - component: {fileID: 1394064068}
   - component: {fileID: 1394064067}
   m_Layer: 0
-  m_Name: Image Gema
+  m_Name: Image Flor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40547,8 +40530,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 242, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchoredPosition: {x: 236, y: -2}
+  m_SizeDelta: {x: 2276.118, y: 2276.118}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1394064067
 MonoBehaviour:
@@ -40570,7 +40553,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aa5c4a048433bdc46ab371bedc7fc3d1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cae69e097629fae48a166525c5f7c49d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -53258,14 +53241,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   luciernagas: {fileID: 460511535}
-  Gema: {fileID: 0}
+  Gema: {fileID: 862670453}
   sonidoError: {fileID: 1611324648}
   sonidoLuciernagas: {fileID: 1081634518}
   sonidoCorrecto: {fileID: 206930781}
   ColiderGema: {fileID: 1649337935}
-  ColiderPared: {fileID: 0}
-  ColiderParedNota: {fileID: 0}
-  ColiderInteracion: {fileID: 0}
+  ColiderPared: {fileID: 870765260}
+  ColiderParedNota: {fileID: 1612613918}
+  ColiderInteracion: {fileID: 184405458}
   delayAparicionGema: 2
 --- !u!65 &1511818132
 BoxCollider:
@@ -54012,14 +53995,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   luciernagas: {fileID: 460511535}
-  Gema: {fileID: 0}
+  Gema: {fileID: 862670453}
   sonidoError: {fileID: 1611324648}
   sonidoLuciernagas: {fileID: 1081634518}
   sonidoCorrecto: {fileID: 206930781}
   ColiderGema: {fileID: 1649337935}
-  ColiderPared: {fileID: 0}
-  ColiderParedNota: {fileID: 0}
-  ColiderInteracion: {fileID: 0}
+  ColiderPared: {fileID: 870765260}
+  ColiderParedNota: {fileID: 1612613918}
+  ColiderInteracion: {fileID: 184405458}
   delayAparicionGema: 2
 --- !u!65 &1552056645
 BoxCollider:
@@ -58863,14 +58846,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   luciernagas: {fileID: 460511535}
-  Gema: {fileID: 0}
+  Gema: {fileID: 862670453}
   sonidoError: {fileID: 1611324648}
   sonidoLuciernagas: {fileID: 1081634518}
   sonidoCorrecto: {fileID: 206930781}
   ColiderGema: {fileID: 1649337935}
-  ColiderPared: {fileID: 0}
-  ColiderParedNota: {fileID: 0}
-  ColiderInteracion: {fileID: 0}
+  ColiderPared: {fileID: 870765260}
+  ColiderParedNota: {fileID: 1612613918}
+  ColiderInteracion: {fileID: 184405458}
   delayAparicionGema: 2
 --- !u!65 &1735315184
 BoxCollider:
@@ -64623,14 +64606,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   luciernagas: {fileID: 460511535}
-  Gema: {fileID: 0}
+  Gema: {fileID: 862670453}
   sonidoError: {fileID: 1611324648}
   sonidoLuciernagas: {fileID: 1081634518}
   sonidoCorrecto: {fileID: 206930781}
   ColiderGema: {fileID: 1649337935}
-  ColiderPared: {fileID: 0}
-  ColiderParedNota: {fileID: 0}
-  ColiderInteracion: {fileID: 0}
+  ColiderPared: {fileID: 870765260}
+  ColiderParedNota: {fileID: 1612613918}
+  ColiderInteracion: {fileID: 184405458}
   delayAparicionGema: 2
 --- !u!65 &1936297638
 BoxCollider:
