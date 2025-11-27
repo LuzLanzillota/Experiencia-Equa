@@ -66,5 +66,5 @@ Material:
     - _RippleDissolve: {r: 5, g: 5, b: 0, a: 0}
     - _RippleScale: {r: 15.7, g: 15.7, b: 0, a: 0}
     - _RippleSpeed: {r: 1, g: 1, b: 0, a: 0}
-    - _Transparency: {r: 0.7, g: 0.7, b: 0, a: 0}
+    - _Transparency: {r: 0.98, g: 0.98, b: 0, a: 0}
   m_BuildTextureStacks: []

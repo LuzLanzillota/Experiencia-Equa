@@ -59,7 +59,7 @@ Material:
     - _foamscale: 220
     - _reflectionstrength: 0.405
     - _ripplesamoung: 5
-    - _speed: 1
+    - _speed: 0.6
     - _varonspeed: 3
     m_Colors:
     - _Color: {r: 0.039215688, g: 0.2392157, b: 0.4431373, a: 0}
