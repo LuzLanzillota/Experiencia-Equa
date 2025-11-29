@@ -9,6 +9,9 @@ public class CodigoCascada : MonoBehaviour
     public AudioSource sonidoFlor;
     public AudioSource sonidoNarracionEstatua;
 
+    // ⭐ NUEVO: sonido de la estatua
+    public AudioSource sonidoEstatua;
+
     public GameObject florObj;
     public GameObject PanelEstatuaIluminada;
     public GameObject ParedMuro;
@@ -23,35 +26,33 @@ public class CodigoCascada : MonoBehaviour
 
     private bool florUsada = false;
 
-    // ⭐ NUEVO
+    // ⭐ Control narración
     private bool narracionReproducida = false;
     private bool narracionTerminada = false;
 
+    // ⭐ Control sonido estatua
+    private bool sonidoEstatuaReproducido = false;
+
     private void Start()
     {
-        if (PanelEstatuaIluminada != null){
-
+        if (PanelEstatuaIluminada != null)
             PanelEstatuaIluminada.SetActive(false);
-        }
-        if (ParedMuro !=null){
+
+        if (ParedMuro != null)
             ParedMuro.SetActive(true);
-        }
-          if (ParedMensaje !=null)
-          {
+
+        if (ParedMensaje != null)
             ParedMensaje.SetActive(true);
-           }
-            
     }
 
     private void Update()
     {
         if (jugadorEnZona && Input.GetKeyDown(KeyCode.E))
         {
-            // ⭐ SOLO PUEDE OCULTAR EL PANEL SI LA NARRACIÓN TERMINÓ
             if (narracionTerminada && PanelEstatuaIluminada.activeSelf)
             {
                 PanelEstatuaIluminada.SetActive(false);
-                return; // no continúa el resto del código
+                return;
             }
 
             if (manager != null && manager.tieneFlorDelDia)
@@ -91,15 +92,23 @@ public class CodigoCascada : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
+        // ⭐ Anima la estatua
         if (animCabeza != null)
             animCabeza.Play("EmissionSi");
 
         if (animCuerpo != null)
             animCuerpo.Play("EmissionSiCuerpo");
 
+        // ⭐ Reproducir sonido de la estatua una sola vez
+        if (!sonidoEstatuaReproducido && sonidoEstatua != null)
+        {
+            sonidoEstatua.Play();
+            sonidoEstatuaReproducido = true;
+        }
+
         yield return new WaitForSeconds(1f);
 
-        // ⭐ QUE LA NARRACIÓN SOLO SUENE UNA VEZ
+        // ⭐ NARRACIÓN ESTATUA
         if (!narracionReproducida && sonidoNarracionEstatua != null)
         {
             PanelEstatuaIluminada.SetActive(true);
@@ -107,19 +116,18 @@ public class CodigoCascada : MonoBehaviour
             sonidoNarracionEstatua.Play();
             narracionReproducida = true;
 
-            // ⭐ Esperar a que termine la narración
             yield return new WaitForSeconds(sonidoNarracionEstatua.clip.length);
 
             narracionTerminada = true;
         }
-          if (ParedMuro !=null){
+
+        if (ParedMuro != null)
             ParedMuro.SetActive(false);
-        }
-          if (ParedMensaje !=null)
-          {
+
+        if (ParedMensaje != null)
             ParedMensaje.SetActive(false);
-           }
-           Gema.Play("EstaCeleste");
+
+        Gema.Play("EstaCeleste");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -140,3 +148,4 @@ public class CodigoCascada : MonoBehaviour
         }
     }
 }
+

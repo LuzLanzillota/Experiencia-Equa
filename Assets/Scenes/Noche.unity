@@ -23477,6 +23477,134 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 53213647}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &510427818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 510427819}
+  - component: {fileID: 510427820}
+  m_Layer: 0
+  m_Name: BrilloPiedras
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &510427819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510427818}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1896120810}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &510427820
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510427818}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 42ec627aa3e441443b8f8bd09d44fa72, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &511396948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25697,6 +25825,7 @@ MonoBehaviour:
   sonidoError: {fileID: 1519130438}
   sonidoFlor: {fileID: 1327312894}
   sonidoNarracionEstatua: {fileID: 1139101772}
+  sonidoEstatua: {fileID: 1853993870}
   florObj: {fileID: 1912152432}
   PanelEstatuaIluminada: {fileID: 1118963826}
   ParedMuro: {fileID: 1965893081}
@@ -51255,7 +51384,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 64.1
+      value: 66.8
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -51265,7 +51394,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 351.8
+      value: 350.7
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -52077,6 +52206,7 @@ MonoBehaviour:
   sonidoError: {fileID: 1519130438}
   sonidoFlor: {fileID: 1327312894}
   sonidoNarracionEstatua: {fileID: 1139101772}
+  sonidoEstatua: {fileID: 0}
   florObj: {fileID: 1912152432}
   PanelEstatuaIluminada: {fileID: 1118963826}
   ParedMuro: {fileID: 1965893081}
@@ -68270,6 +68400,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonidoAgarrar: {fileID: 1778249995}
+  sonidoPiedras: {fileID: 510427820}
+  piedras:
+  - {fileID: 1679239758}
+  - {fileID: 975121310}
+  - {fileID: 1803063325}
+  nombreAnimaciones:
+  - PiedraCascadaSi1
+  - PiedraCascadaSi2
+  - PiedraCascadaSi3
+  delayDespuesDeFlor: 1.5
+  delayEntrePiedras: 0.5
 --- !u!65 &1536202026
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70578,7 +70719,7 @@ MonoBehaviour:
   panel: {fileID: 1846734168}
   videoPlayer: {fileID: 1928071387}
   narracion: {fileID: 801154942}
-  indiceSiguienteEscena: 2
+  indiceSiguienteEscena: 1
   contadorGemas: {fileID: 327170164}
   panelSinGemas: {fileID: 640466440}
   indiceEscenaGemasCompletas: 3
@@ -80602,6 +80743,134 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8691780276856062721, guid: ca0d2c65708d7ec4186fe5329a44d6c9, type: 3}
+--- !u!1 &1853993868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1853993869}
+  - component: {fileID: 1853993870}
+  m_Layer: 0
+  m_Name: BrilloNocturna
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1853993869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853993868}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1896120810}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1853993870
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853993868}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8861b67177b962944bfe82be7b2d2aae, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1857441283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81649,6 +81918,8 @@ Transform:
   - {fileID: 1327312893}
   - {fileID: 1519130437}
   - {fileID: 1928071386}
+  - {fileID: 510427819}
+  - {fileID: 1853993869}
   m_Father: {fileID: 1848277902}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1897851772
@@ -82332,7 +82603,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cbd238eb7e5e0ca448f8980dc507d11a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2104993402387549794, guid: cbd238eb7e5e0ca448f8980dc507d11a,
         type: 3}
@@ -82442,7 +82713,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263e81fccd429134f9a81304933468d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sonidoAgarrar: {fileID: 1778249995}
+  sonidoAgarrar: {fileID: 0}
+  sonidoPiedras: {fileID: 0}
+  piedras: []
+  nombreAnimaciones: []
+  delayDespuesDeFlor: 2
+  delayEntrePiedras: 1.5
 --- !u!1001 &1912369570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88510,6 +88786,7 @@ MonoBehaviour:
   sonidoError: {fileID: 1519130438}
   sonidoFlor: {fileID: 1327312894}
   sonidoNarracionEstatua: {fileID: 1139101772}
+  sonidoEstatua: {fileID: 0}
   florObj: {fileID: 1912152432}
   PanelEstatuaIluminada: {fileID: 1118963826}
   ParedMuro: {fileID: 1965893081}
