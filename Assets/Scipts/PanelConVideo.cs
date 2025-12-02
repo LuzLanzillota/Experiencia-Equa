@@ -7,23 +7,31 @@ public class PanelConVideo : MonoBehaviour
 {
     [Header("Referencias")]
     public Animator panel;
-    public VideoPlayer videoPlayer;
-    public AudioSource narracion; // 👈 NUEVO: narración del panel
+    public VideoPlayer video3Gemas;
+    public VideoPlayer video6Gemas;
+
+    public AudioSource narracion;
     public int indiceSiguienteEscena;
+    public int indiceEscenaGemasCompletas;
+
     public ContadorGemas contadorGemas;
     public GameObject panelSinGemas;
 
-    [Header("Configuración de Escenas")]
-    public int indiceEscenaGemasCompletas = 3;
-
     private bool jugadorDentro = false;
     private bool panelActivo = false;
-    private bool audioEnReproduccion = false; // 👈 NUEVO
+    private bool audioEnReproduccion = false;
+    private bool esperandoTecla = false;
+    private bool narracionYaSonada = false;
+
 
     void Start()
     {
-        if (videoPlayer != null)
-            videoPlayer.gameObject.SetActive(false);
+        if (video3Gemas != null)
+            video3Gemas.gameObject.SetActive(false);
+
+        if (video6Gemas != null)
+            video6Gemas.gameObject.SetActive(false);
+
         if (panelSinGemas != null)
             panelSinGemas.SetActive(false);
     }
@@ -32,24 +40,15 @@ public class PanelConVideo : MonoBehaviour
     {
         if (!jugadorDentro || contadorGemas == null) return;
 
-        int puntosActuales = contadorGemas.puntos;
+        int puntos = contadorGemas.puntos;
 
-        // --- 6 Gemas → Cargar escena ---
-        if (puntosActuales >= 6)
-        {
-            CerrarPanel();
-            if (panelSinGemas != null) panelSinGemas.SetActive(false);
-            SceneManager.LoadScene(indiceEscenaGemasCompletas);
-            return;
-        }
-
-        // --- 3 Gemas → Mostrar panel ---
-        if (puntosActuales == 3)
+        // --- Mostrar panel cuando tiene 3 o 6 gemas ---
+        if (puntos == 3 || puntos >= 6)
         {
             if (!panelActivo)
             {
                 panelActivo = true;
-                if (panelSinGemas != null) panelSinGemas.SetActive(false);
+                panelSinGemas.SetActive(false);
                 AbrirPanel();
             }
         }
@@ -61,36 +60,92 @@ public class PanelConVideo : MonoBehaviour
                 panelActivo = false;
             }
 
-            if (panelSinGemas != null)
-                panelSinGemas.SetActive(true);
+            panelSinGemas.SetActive(true);
         }
 
-        // --- Acción E ---
-        if (panelActivo && !audioEnReproduccion && Input.GetKeyDown(KeyCode.E))
+        // --- Acción E para reproducir el video ---
+        if (panelActivo && !audioEnReproduccion && esperandoTecla && Input.GetKeyDown(KeyCode.E))
         {
             panelActivo = false;
-            CerrarPanel();
-            StartCoroutine(ReproducirVideoYCambiarEscena());
+            esperandoTecla = false;
+
+            // 🔥 NUEVO → Ocultar el panel SIN animación, así no pide 2 veces la E
+            panel.gameObject.SetActive(false);
+
+            // Detener narración ANTES del video
+            if (narracion != null && narracion.isPlaying)
+                narracion.Stop();
+
+            if (puntos == 3)
+                StartCoroutine(ReproducirVideo3());
+            else if (puntos >= 6)
+                StartCoroutine(ReproducirVideo6());
         }
     }
 
-    private IEnumerator ReproducirVideoYCambiarEscena()
+    // ------------------------------------------------------
+    // VIDEO 3 GEMAS
+    // ------------------------------------------------------
+    private IEnumerator ReproducirVideo3()
     {
-        if (videoPlayer != null)
+        video3Gemas.gameObject.SetActive(true);
+
+        video3Gemas.Prepare();
+        yield return new WaitUntil(() => video3Gemas.isPrepared);
+
+        video3Gemas.Play();
+        yield return new WaitUntil(() => !video3Gemas.isPlaying);
+
+        SceneManager.LoadScene(indiceSiguienteEscena);
+    }
+
+    // ------------------------------------------------------
+    // VIDEO 6 GEMAS
+    // ------------------------------------------------------
+    private IEnumerator ReproducirVideo6()
+    {
+        video6Gemas.gameObject.SetActive(true);
+
+        video6Gemas.Prepare();
+        yield return new WaitUntil(() => video6Gemas.isPrepared);
+
+        video6Gemas.Play();
+        yield return new WaitUntil(() => !video6Gemas.isPlaying);
+
+        SceneManager.LoadScene(indiceEscenaGemasCompletas);
+    }
+
+    // ------------------------------------------------------
+    // PANEL + NARRACIÓN
+    // ------------------------------------------------------
+    private void AbrirPanel()
+    {
+        panel.gameObject.SetActive(true);
+        panel.Play("FinalDia");
+
+        if (narracion != null && !narracionYaSonada)
         {
-            CerrarPanel();
-            if (panelSinGemas != null) panelSinGemas.SetActive(false);
-
-            videoPlayer.gameObject.SetActive(true);
-
-            videoPlayer.Prepare();
-            yield return new WaitUntil(() => videoPlayer.isPrepared);
-
-            videoPlayer.Play();
-            yield return new WaitUntil(() => !videoPlayer.isPlaying);
-
-            SceneManager.LoadScene(indiceSiguienteEscena);
+            narracion.Play();
+            audioEnReproduccion = true;
+            narracionYaSonada = true;      
+            StartCoroutine(EsperarFinNarracion());
         }
+    }
+
+    private IEnumerator EsperarFinNarracion()
+    {
+        yield return new WaitUntil(() => !narracion.isPlaying);
+
+        audioEnReproduccion = false;
+
+        // recién aquí puede tocar la E
+        esperandoTecla = true;
+    }
+
+    private void CerrarPanel()
+    {
+        panel.Play("FinalDiaNoEsta");
+        esperandoTecla = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -106,39 +161,13 @@ public class PanelConVideo : MonoBehaviour
             jugadorDentro = false;
 
             CerrarPanel();
-            if (panelSinGemas != null) panelSinGemas.SetActive(false);
-
+            panelSinGemas.SetActive(false);
             panelActivo = false;
+
+            // si sale, detener narración
+            if (narracion != null && narracion.isPlaying)
+                narracion.Stop();
         }
-    }
-
-    // ------------------------------------------------------
-    //     CONTROL DEL PANEL + INICIO DE LA NARRACIÓN
-    // ------------------------------------------------------
-    private void AbrirPanel()
-    {
-        if (panel != null)
-            panel.Play("FinalDia");
-
-        if (narracion != null)
-        {
-            narracion.Play();
-            audioEnReproduccion = true;
-            StartCoroutine(EsperarAudioNarracion());
-        }
-    }
-
-    private IEnumerator EsperarAudioNarracion()
-    {
-        // Bloquea interacción hasta que termine el audio
-        yield return new WaitUntil(() => !narracion.isPlaying);
-
-        audioEnReproduccion = false;
-    }
-
-    private void CerrarPanel()
-    {
-        if (panel != null)
-            panel.Play("FinalDiaNoEsta");
     }
 }
+
