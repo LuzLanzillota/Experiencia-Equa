@@ -49463,6 +49463,9 @@ MonoBehaviour:
   video3Gemas: {fileID: 1082832687}
   video6Gemas: {fileID: 687290148}
   narracion: {fileID: 65812090}
+  ambiente: {fileID: 742529786}
+  ambiente2: {fileID: 202478578}
+  cascada: {fileID: 263114535}
   indiceSiguienteEscena: 2
   indiceEscenaGemasCompletas: 3
   contadorGemas: {fileID: 44214004}
@@ -54632,7 +54635,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1022758223
 MonoBehaviour:
   m_ObjectHideFlags: 0

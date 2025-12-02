@@ -86,6 +86,11 @@ public class BotonController : MonoBehaviour
     {
         yield return new WaitForSeconds(delayAparicionGema);
 
+        // 👇 Oculta el panel ANTES de desactivar los colliders
+        PanelTrigger panelTrigger = ColiderInteracion.GetComponent<PanelTrigger>();
+        if (panelTrigger != null)
+            panelTrigger.OcultarPanel();
+
         // 🔓 Activa colider y animación de la gema
         ColiderPared.SetActive(false);
         ColiderInteracion.SetActive(false);
@@ -95,6 +100,7 @@ public class BotonController : MonoBehaviour
         if (Gema != null)
             Gema.Play("Esta");
     }
+
 
     private void OnTriggerEnter(Collider other)
     {

@@ -11,6 +11,9 @@ public class PanelConVideo : MonoBehaviour
     public VideoPlayer video6Gemas;
 
     public AudioSource narracion;
+    public AudioSource ambiente;
+    public AudioSource ambiente2;
+    public AudioSource cascada;
     public int indiceSiguienteEscena;
     public int indiceEscenaGemasCompletas;
 
@@ -22,6 +25,8 @@ public class PanelConVideo : MonoBehaviour
     private bool audioEnReproduccion = false;
     private bool esperandoTecla = false;
     private bool narracionYaSonada = false;
+
+    private bool videoIniciado = false; // 🔥 Evita que el panel reaparezca una vez que empieza el video
 
 
     void Start()
@@ -38,7 +43,8 @@ public class PanelConVideo : MonoBehaviour
 
     void Update()
     {
-        if (!jugadorDentro || contadorGemas == null) return;
+        // 🚫 Mientras el video esté iniciando/reproduciéndose, no abrir panel ni procesar nada
+        if (!jugadorDentro || contadorGemas == null || videoIniciado) return;
 
         int puntos = contadorGemas.puntos;
 
@@ -66,13 +72,16 @@ public class PanelConVideo : MonoBehaviour
         // --- Acción E para reproducir el video ---
         if (panelActivo && !audioEnReproduccion && esperandoTecla && Input.GetKeyDown(KeyCode.E))
         {
+   
+            videoIniciado = true;    
+
             panelActivo = false;
             esperandoTecla = false;
 
-            // 🔥 NUEVO → Ocultar el panel SIN animación, así no pide 2 veces la E
+            // Ocultar panel sin animación
             panel.gameObject.SetActive(false);
 
-            // Detener narración ANTES del video
+            // Detener narración
             if (narracion != null && narracion.isPlaying)
                 narracion.Stop();
 
@@ -88,6 +97,9 @@ public class PanelConVideo : MonoBehaviour
     // ------------------------------------------------------
     private IEnumerator ReproducirVideo3()
     {
+        ambiente.Stop();
+        ambiente2.Stop();
+        cascada.Stop();
         video3Gemas.gameObject.SetActive(true);
 
         video3Gemas.Prepare();
@@ -104,6 +116,9 @@ public class PanelConVideo : MonoBehaviour
     // ------------------------------------------------------
     private IEnumerator ReproducirVideo6()
     {
+        ambiente.Stop();
+        ambiente2.Stop();
+        cascada.Stop();
         video6Gemas.gameObject.SetActive(true);
 
         video6Gemas.Prepare();
@@ -127,7 +142,7 @@ public class PanelConVideo : MonoBehaviour
         {
             narracion.Play();
             audioEnReproduccion = true;
-            narracionYaSonada = true;      
+            narracionYaSonada = true;
             StartCoroutine(EsperarFinNarracion());
         }
     }
@@ -164,10 +179,12 @@ public class PanelConVideo : MonoBehaviour
             panelSinGemas.SetActive(false);
             panelActivo = false;
 
+            // 🔥 Permitir que se vuelva a abrir cuando vuelve a entrar
+            videoIniciado = false;
+
             // si sale, detener narración
             if (narracion != null && narracion.isPlaying)
                 narracion.Stop();
         }
     }
 }
-

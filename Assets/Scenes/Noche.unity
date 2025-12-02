@@ -51285,7 +51285,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 66.8
+      value: 71.1
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -51295,7 +51295,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 350.7
+      value: 348.8
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -70621,6 +70621,9 @@ MonoBehaviour:
   video3Gemas: {fileID: 1928071387}
   video6Gemas: {fileID: 296133416}
   narracion: {fileID: 801154942}
+  ambiente: {fileID: 161269896}
+  ambiente2: {fileID: 201409168}
+  cascada: {fileID: 891968067}
   indiceSiguienteEscena: 1
   indiceEscenaGemasCompletas: 3
   contadorGemas: {fileID: 327170164}
