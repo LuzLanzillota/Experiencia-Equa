@@ -55,16 +55,16 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - _BaseColor: {r: 0.023529407, g: 0.20302092, b: 0.34901962, a: 1}
-    - _FoamColor: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 0}
-    - _FoamOffset: {r: 0.77, g: 0, b: 0, a: 0}
+    - _FoamColor: {r: 0.7075472, g: 0.7075472, b: 0.7075472, a: 1}
+    - _FoamOffset: {r: 17.08, g: 0, b: 0, a: 0}
     - _Gloss: {r: 8, g: 0, b: 0, a: 0}
     - _Metallic: {r: 0.09, g: 0, b: 0, a: 0}
     - _NormalSpeed: {r: 0.02, g: -0.01, b: 0, a: 0}
     - _NormalStrengh2: {r: 0, g: 0, b: 0, a: 0}
     - _NormalStrength: {r: 15, g: 0, b: 0, a: 0}
-    - _RippleColor: {r: 0, g: 0, b: 0.5943396, a: 1}
+    - _RippleColor: {r: 0.046724804, g: 0.061300088, b: 0.09433961, a: 1}
     - _RippleDissolve: {r: 5, g: 5, b: 0, a: 0}
     - _RippleScale: {r: 15.7, g: 15.7, b: 0, a: 0}
     - _RippleSpeed: {r: 1, g: 1, b: 0, a: 0}
-    - _Transparency: {r: 0.98, g: 0.98, b: 0, a: 0}
+    - _Transparency: {r: 1.31, g: 1.07, b: 0, a: 0}
   m_BuildTextureStacks: []
