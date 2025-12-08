@@ -6,21 +6,27 @@ public class Mensaje2Final : MonoBehaviour
 {
     public Animator animMensaje;
     public GameObject mensajeObj;
-    public AudioSource audioMensaje;
+    public AudioSource audioMensaje;        // ?? Narración del mensaje
     public VideoPlayer videoPlayer;
+    public GameObject panelFinal;
 
     private bool audioTermino = false;
     private bool yaActivado = false;
+    private bool videoTermino = false;
 
     private void Start()
     {
         if (mensajeObj != null)
             mensajeObj.SetActive(false);
 
+        if (panelFinal != null)
+            panelFinal.SetActive(false);
+
         if (videoPlayer != null)
         {
-            // Cuando termine el video ? salir del juego
-            videoPlayer.loopPointReached += SalirDelJuego;
+            videoPlayer.playOnAwake = false;   // ?? Asegura que NO arranque solo
+            videoPlayer.Stop();
+            videoPlayer.loopPointReached += ActivarPanelFinal;
         }
     }
 
@@ -33,42 +39,58 @@ public class Mensaje2Final : MonoBehaviour
             mensajeObj.SetActive(true);
             animMensaje.Play("mensaje2final");
 
+            // ?? Reproduce automáticamente la narración del mensaje
             if (audioMensaje != null)
                 audioMensaje.Play();
 
-            StartCoroutine(EsperarAudio());
+            StartCoroutine(EsperarNarracion());
         }
     }
 
-    private IEnumerator EsperarAudio()
+    // ? Espera a que termine el audio ANTES de permitir E
+    private IEnumerator EsperarNarracion()
     {
         if (audioMensaje == null) yield break;
 
         yield return new WaitWhile(() => audioMensaje.isPlaying);
-        audioTermino = true;
+        audioTermino = true;   // ?? Ahora sí se puede presionar E para seguir
     }
 
     private void Update()
     {
-        if (audioTermino && Input.GetKeyDown(KeyCode.E))
+        // ?? Solo cuando la narración terminó ? E cierra el mensaje e inicia el video
+        if (!videoTermino && audioTermino && Input.GetKeyDown(KeyCode.E))
         {
             if (videoPlayer != null)
                 videoPlayer.Play();
 
             Destroy(mensajeObj);
         }
+
+        // ?? Una vez que el video terminó ? E sale del juego
+        if (videoTermino && Input.GetKeyDown(KeyCode.E))
+        {
+            SalirDelJuego();
+        }
     }
 
-    // ?? ESTA FUNCIÓN SE LLAMA AUTOMÁTICAMENTE CUANDO TERMINA EL VIDEO
-    private void SalirDelJuego(VideoPlayer vp)
+    // ?? Activa panel final automáticamente al terminar el video
+    private void ActivarPanelFinal(VideoPlayer vp)
     {
-        Debug.Log("?? Video terminado. Cerrando el juego...");
+        videoTermino = true;
 
-        // Si estás en el editor de Unity
+        if (panelFinal != null)
+            panelFinal.SetActive(true);
+
+        Debug.Log("?? Video terminado ? Panel final activado. Presiona E para salir.");
+    }
+
+    // ?? Cerrar el juego
+    private void SalirDelJuego()
+    {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-        // Si es una build normal
         Application.Quit();
 #endif
     }
