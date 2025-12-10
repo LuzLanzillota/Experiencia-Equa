@@ -1199,7 +1199,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9c915686942eff445b23247c8e94b4b3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.863304
+      value: 20.99
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9c915686942eff445b23247c8e94b4b3,
         type: 3}
@@ -4082,6 +4082,7 @@ MonoBehaviour:
   audioMensaje: {fileID: 1549035015}
   videoPlayer: {fileID: 540567228}
   panelFinal: {fileID: 1978139004}
+  audioAmbiente: {fileID: 1811439991}
 --- !u!1001 &649364472
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6261,7 +6262,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9c915686942eff445b23247c8e94b4b3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.490303
+      value: 21.11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9c915686942eff445b23247c8e94b4b3,
         type: 3}
@@ -13958,7 +13959,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6c225fb221c8cb14e9898bea7f9397a3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4509044
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c225fb221c8cb14e9898bea7f9397a3,
         type: 3}
@@ -21331,17 +21332,17 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d541bacf99081b446a4b0e68f9c09b11, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.555
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
+  DopplerLevel: 0
+  MinDistance: 69.70814
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -21377,7 +21378,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -21426,7 +21427,7 @@ Transform:
   m_GameObject: {fileID: 1811439990}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.644, y: 93.91108, z: 161.64896}
+  m_LocalPosition: {x: 97.6, y: 97.75, z: 102.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22076,7 +22077,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6c225fb221c8cb14e9898bea7f9397a3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.838303
+      value: 7.45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c225fb221c8cb14e9898bea7f9397a3,
         type: 3}
@@ -23356,7 +23357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1e488a7ee301c2d49bf819518806deb0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0810b2f4488bcd34aa2fea3a333f7ee0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
