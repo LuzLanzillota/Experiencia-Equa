@@ -33,10 +33,14 @@ public class CodigoCascada : MonoBehaviour
     // ⭐ Control sonido estatua
     private bool sonidoEstatuaReproducido = false;
 
-    private void Start()
+    private void Awake()
     {
         if (PanelEstatuaIluminada != null)
             PanelEstatuaIluminada.SetActive(false);
+    }
+
+    private void Start()
+    {
 
         if (ParedMuro != null)
             ParedMuro.SetActive(true);

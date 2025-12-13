@@ -70,10 +70,9 @@ public class PanelConVideo : MonoBehaviour
         }
 
         // --- Acción E para reproducir el video ---
-        if (panelActivo && !audioEnReproduccion && esperandoTecla && Input.GetKeyDown(KeyCode.E))
+        if (panelActivo && Input.GetKeyDown(KeyCode.E))
         {
-   
-            videoIniciado = true;    
+            videoIniciado = true;
 
             panelActivo = false;
             esperandoTecla = false;
@@ -81,9 +80,11 @@ public class PanelConVideo : MonoBehaviour
             // Ocultar panel sin animación
             panel.gameObject.SetActive(false);
 
-            // Detener narración
+            // 🔥 CORTAR NARRACIÓN INMEDIATAMENTE
             if (narracion != null && narracion.isPlaying)
                 narracion.Stop();
+
+            audioEnReproduccion = false;
 
             if (puntos == 3)
                 StartCoroutine(ReproducirVideo3());
