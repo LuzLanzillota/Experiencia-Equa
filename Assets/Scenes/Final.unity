@@ -21387,7 +21387,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.555
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -23536,7 +23536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0810b2f4488bcd34aa2fea3a333f7ee0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0b38c719d0ca83540bd68a9c78c38ce0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
