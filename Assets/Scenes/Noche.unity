@@ -35646,7 +35646,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c00c9a89160e8824a8238770df56938e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 896f930f8778e274da525d9169055382, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -85933,13 +85933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811153d74cc797940a7ac4f9c519871a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  muros:
-  - {fileID: 1869148890}
-  - {fileID: 1860652989}
-  - {fileID: 207494285}
-  - {fileID: 1928005852}
-  mensajes:
-  - {fileID: 1141763865}
 --- !u!1001 &1983976923
 PrefabInstance:
   m_ObjectHideFlags: 0
