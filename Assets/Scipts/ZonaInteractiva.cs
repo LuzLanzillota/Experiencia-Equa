@@ -1,12 +1,15 @@
 using UnityEngine;
- using TMPro;
+using TMPro;
 
 public class ZonaInteractiva : MonoBehaviour
 {
     public GameObject textoUI;
     private bool jugadorEnZona = false;
+
     public Animator PuertaEntrada;
     public AudioSource PuertaEntradaAudio;
+
+    private bool audioReproducido = false; // ?? NUEVO
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,8 +17,14 @@ public class ZonaInteractiva : MonoBehaviour
         {
             textoUI.SetActive(true);
             jugadorEnZona = true;
+
             PuertaEntrada.Play("PuertaEntradaCueva");
-            PuertaEntradaAudio.Play();
+
+            if (!audioReproducido)              // ?? CONDICIÓN
+            {
+                PuertaEntradaAudio.Play();
+                audioReproducido = true;        // ?? MARCA QUE YA SONÓ
+            }
         }
     }
 
@@ -33,7 +42,6 @@ public class ZonaInteractiva : MonoBehaviour
         if (jugadorEnZona && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Interacción activada");
-            
         }
     }
 }
